@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, getEntryBySlug, render } from 'astro:content';
+import ResultSlider from '../../components/ResultSlider.jsx';
+
+export async function getStaticPaths() {
+  const services = await getCollection('servicios');
+  return services.map((s: any) => ({
+    params: { slug: s.slug ?? s.id }
+  }));
+}
+
+const { slug } = Astro.params as { slug: string };
+const service = await getEntryBySlug('servicios', slug);
+if (!service) {
+  throw new Error('Servicio no encontrado');
+}
+
+const { Content } = await render(service);
+
+const whatsappLink = `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(
+  `Hola Dra. Nitiz, me interesa ${service.data.title}. Quisiera agendar una consulta.`
+)}`;
+---
+
+<Layout>
+  <main class="max-w-6xl mx-auto px-4 py-12 space-y-10">
+    
+    <!-- Encabezado -->
+    <div class="hero bg-base-200 rounded-xl p-8 shadow-lg">
+      <div class="hero-content flex-col md:flex-row gap-8">
+        <img src={service.data.image} class="max-w-sm rounded-lg shadow-2xl" alt={service.data.title}/>
+        <div>
+          <h1 class="text-5xl font-bold text-primary">{service.data.title}</h1>
+          <p class="py-6 text-lg">{service.data.short}</p>
+          <div class="flex flex-wrap gap-4">
+            <a href={whatsappLink} target="_blank" class="btn btn-primary">📱 Reservar por WhatsApp</a>
+            <a href="#contacto" class="btn btn-outline">📅 Agendar Consulta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido dinámico del servicio -->
+    <div class="card bg-base-100 shadow-xl p-8">
+      <article class="prose max-w-none">
+        <Content />
+      </article>
+    </div>
+
+    <!-- Antes / Después -->
+    {service.data.before && service.data.after ? (
+      <div class="bg-base-200 p-8 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-primary mb-4">Resultados</h3>
+        <ResultSlider client:load before={service.data.before} after={service.data.after} />
+      </div>
+    ) : null}
+    
+  </main>
+</Layout>

@@ -1,0 +1,115 @@
+---
+--- 
+
+<section class="min-h-[70vh] py-16 bg-gradient-to-b from-[#f8f9fb] to-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <!-- Left: Info / Marca -->
+      <div class="space-y-4">
+        <h2 class="text-3xl lg:text-4xl font-semibold leading-tight">Agenda tu Consulta</h2>
+        <p class="text-gray-600 max-w-xl">
+          El primer paso hacia tu transformación. Completa el formulario y nos pondremos en contacto para confirmar la cita.
+        </p>
+
+        <div class="mt-6 flex gap-4">
+          <div class="px-3 py-2 rounded-lg bg-[#163c60] text-white text-sm shadow-sm">
+            <strong>Atención personalizada</strong>
+            <div class="text-xs opacity-90">Respuesta en 24–48h</div>
+          </div>
+          <div class="px-3 py-2 rounded-lg border border-[#cac9ce] text-sm text-gray-700 bg-white">
+            <div class="text-sm">Centros: Fundación Santa Fe • Clínica XYZ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Formulario -->
+      <div>
+        <form id="contactForm" class="bg-white border border-[#cac9ce] rounded-2xl2 p-6 shadow-md" autocomplete="off" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <label class="flex flex-col">
+              <span class="text-sm text-gray-700 mb-2">Nombre Completo *</span>
+              <input name="name" required type="text" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="Ej. María Pérez" />
+            </label>
+
+            <label class="flex flex-col">
+              <span class="text-sm text-gray-700 mb-2">Teléfono *</span>
+              <input name="phone" required type="tel" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="+57 300 000 0000" />
+            </label>
+          </div>
+
+          <div class="mt-4">
+            <label class="flex flex-col">
+              <span class="text-sm text-gray-700 mb-2">Email *</span>
+              <input name="email" required type="email" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="correo@ejemplo.com" />
+            </label>
+          </div>
+
+          <div class="mt-4">
+            <label class="flex flex-col">
+              <span class="text-sm text-gray-700 mb-2">Procedimiento de interés</span>
+              <select name="procedure" class="select select-bordered w-full rounded-lg px-3 py-2 bg-white border border-[#e6e7e9]">
+                <option value="">Selecciona un procedimiento</option>
+                <option>Mamoplastia</option>
+                <option>Abdominoplastia</option>
+                <option>Lipoescultura</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="mt-4">
+            <label class="flex flex-col">
+              <span class="text-sm text-gray-700 mb-2">Mensaje</span>
+              <textarea name="message" rows="4" class="textarea textarea-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="Cuéntanos brevemente tu caso..."></textarea>
+            </label>
+          </div>
+
+          <div class="mt-5 flex items-center justify-between gap-4">
+            <div class="text-sm text-gray-600">
+              <label class="inline-flex items-center gap-2">
+                <input type="checkbox" name="consent" class="checkbox checkbox-sm border-[#e6e7e9]" />
+                <span>Acepto ser contactado</span>
+              </label>
+            </div>
+
+            <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#163c60] text-white font-medium shadow-sm hover:brightness-95 transition">
+              Enviar solicitud
+            </button>
+          </div>
+
+          <div id="formFeedback" class="mt-4 text-sm" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      feedback.innerHTML = '';
+
+      const data = new FormData(form);
+      if (!data.get('name') || !data.get('email') || !data.get('phone')) {
+        feedback.innerHTML = '<div class="text-sm text-amber-700">Por favor completa los campos obligatorios*</div>';
+        return;
+      }
+
+      try {
+        const resp = await fetch('/api/contact', { method: 'POST', body: data });
+        if (!resp.ok) throw new Error('server error');
+        const json = await resp.json();
+        if (json.success) {
+          feedback.innerHTML = '<div class="text-sm text-green-700">¡Solicitud enviada! Te contactamos pronto.</div>';
+          form.reset();
+        } else {
+          feedback.innerHTML = '<div class="text-sm text-red-700">No se pudo enviar. Intenta más tarde.</div>';
+        }
+      } catch (err) {
+        console.error(err);
+        feedback.innerHTML = '<div class="text-sm text-red-700">Error de conexión. Intenta nuevamente.</div>';
+      }
+    });
+  </script>
+</section>

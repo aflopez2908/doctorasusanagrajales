@@ -1,0 +1,70 @@
+---
+const testimonials = [
+  {
+    name: "Silvia F.",
+    meta: "Paciente · Bogotá",
+    text: "La atención fue impecable, desde la consulta inicial hasta el postoperatorio. Resultados naturales y profesionales.",
+  },
+  {
+    name: "Ana L.",
+    meta: "Paciente · Medellín",
+    text: "El equipo explicó cada paso con detalle. Me sentí en confianza y el resultado fue justo lo que esperaba.",
+  },
+  {
+    name: "Carlos P.",
+    meta: "Paciente · Cali",
+    text: "Profesionalismo total. Muy satisfecho con el trato y los resultados visibles después del tiempo de recuperación.",
+  },
+];
+---
+<section id="testimonios" class="py-16 bg-white">
+  <div class="mx-auto px-6" style="max-width:1100px;">
+    <!-- título -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl lg:text-4xl font-semibold text-[#163c60]" style="font-family: 'Playfair Display', serif;">
+        Testimonios
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mt-3">
+        Experiencias reales y detalladas. La confianza de nuestras pacientes y pacientes respalda nuestro trabajo.
+      </p>
+    </div>
+
+    <!-- grid centrado con tarjetas de ancho fijo -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      {testimonials.map((t) => (
+        <article
+          class="w-full max-w-[360px] mx-auto bg-white border border-[#cac9ce] rounded-2xl p-6 shadow-[0_6px_18px_rgba(22,60,96,0.06)] transition-transform duration-200 hover:translate-y-[-6px]"
+          aria-label={`Testimonio de ${t.name}`}
+        >
+          <header class="flex items-center gap-4 mb-4">
+            <!-- avatar minimalista con iniciales -->
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium" style="background:#163c60;">
+              <span class="text-sm">{t.name.split(' ').map(n => n[0]).slice(0,2).join('')}</span>
+            </div>
+
+            <div>
+              <h3 class="text-sm lg:text-base font-semibold text-[#163c60]" style="font-family: 'Playfair Display', serif;">{t.name}</h3>
+              <div class="text-xs text-gray-500 mt-1">{t.meta}</div>
+            </div>
+          </header>
+
+          <blockquote class="text-gray-700 italic leading-relaxed mb-4" style="min-height:80px;">
+            “{t.text}”
+          </blockquote>
+
+          <footer class="flex items-center justify-between text-xs text-gray-500">
+            <div class="flex items-center gap-1">
+              <!-- estrellas pequeñas decorativas -->
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="#163c60" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.6l2.3 4.7 5.2.8-3.8 3.7.9 5.1L10 13.9 4.4 16.0l.9-5.1L1.5 7.2l5.2-.8L10 1.6z"/></svg>
+              <span>Paciente verificado</span>
+            </div>
+
+            <div>
+              <a class="text-[#163c60] text-xs font-medium hover:underline" href="#contacto">Agendar consulta</a>
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

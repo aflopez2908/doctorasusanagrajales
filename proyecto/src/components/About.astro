@@ -1,0 +1,88 @@
+---
+// src/components/About.astro
+export interface Props {
+  name?: string;
+  title?: string;
+  image?: string;
+  bio?: string;
+  education?: { title: string; subtitle?: string }[];
+  centers?: string[];
+}
+
+const {
+  name = "Dra. Juanita",
+  title = "Cirujana Plástica Especializada",
+  image = "../../public/images/doc/docb.JPG",
+  bio = `Con formación médica de la prestigiosa Universidad Javeriana y especialización en Brasil, la cuna mundial de la cirugía estética, ofrezco procedimientos de contorno corporal con los más altos estándares de calidad.`,
+  education = [
+    { title: "Universidad Javeriana", subtitle: "Formación médica" },
+    { title: "Especialización - Brasil", subtitle: "Cirugía estética" }
+  ],
+  centers = [
+    "Fundación Santa Fe de Bogotá",
+    "Centro Internacional de Cirugía Plástica"
+  ]
+} = Astro.props;
+---
+
+<section id="sobre" class="py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Imagen -->
+      <div class="flex justify-center md:justify-start">
+        <img
+          src={image}
+          alt={`Foto ${name}`}
+          class="w-full max-w-md rounded-2xl shadow-xl object-cover"
+          style="aspect-ratio: 4/5;"
+        />
+      </div>
+
+      <!-- Contenido -->
+      <div>
+        <h3 class="text-[#163c60] text-3xl font-bold mb-2">{name}</h3>
+        <p class="text-gray-500 mb-6">{title}</p>
+
+        <p class="text-gray-600 leading-relaxed mb-6">
+          {bio}
+        </p>
+
+        <!-- Tarjetas de formación -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          {education.map((e) => (
+            <div class="flex-1 bg-white border border-gray-100 rounded-lg p-4 shadow-sm">
+              <div class="flex items-start gap-3">
+                <!-- Icono simple (graduación / globo) -->
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-[#163c60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422A12 12 0 0112 21.5 12 12 0 015.84 10.578L12 14z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-[#163c60]">{e.title}</div>
+                  {e.subtitle ? <div class="text-xs text-gray-500 mt-1">{e.subtitle}</div> : null}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Centros de atención -->
+        <div class="bg-[#eef3f7] border border-[#e2e8ee] rounded-lg p-4">
+          <div class="text-sm font-semibold text-[#163c60] mb-3">Centros de Atención:</div>
+          <ul class="space-y-2 text-gray-700">
+            {centers.map((c) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#163c60] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h2V5H5a2 2 0 00-2 2zM21 7v10a2 2 0 01-2 2h-2V5h2a2 2 0 012 2z" />
+                </svg>
+                <span class="text-sm">{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
