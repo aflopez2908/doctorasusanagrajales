@@ -1,19 +1,11 @@
 ---
 title: "Blefaroplastia"
 slug: "blefaroplastia"
-short: "Rejuvenecimiento periocular con técnicas mínimamente invasivas."
-image: "/images/services/blefaroplastia-card.jpg"
-technologies: ["MicroAire","Técnicas mínimamente invasivas"]
-before: "/images/results/blefa-before.jpg"
-after: "/images/results/blefa-after.jpg"
+short: "Cirugía estética para corregir los párpados, mejorando su apariencia y función."
+image: "/images/services/blefaroplastia.png"
+category: "Cirugía Facial"
+icon: "/images/icons/blefaroplastia.png"
 ---
 ## Procedimiento
-La blefaroplastia corrige el exceso de piel y protuberancias de grasa en párpados superiores e inferiores, devolviendo un aspecto más descansado y natural.
+La blefaroplastia es una cirugía estética que se realiza para corregir los párpados, mejorando su apariencia y función. Esta sirve para eliminar el exceso de piel y grasa en los párpados, superiores o inferiores, reducir bolsas bajo los ojos, mejorar la mirada, haciéndola más descansada y juvenil y en algunos casos, mejorar la visión si la piel caída tapa el campo visual.
 
-## Indicaciones
-- Exceso cutáneo palpebral que afecta el contorno de ojos.
-- Bolsas de grasa palpebral.
-
-## Riesgos
-- Cicatriz visible (generalmente discreta).
-- Diplopía (muy rara), hematoma.

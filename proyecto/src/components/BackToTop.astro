@@ -1,0 +1,36 @@
+---
+// No frontmatter needed
+---
+
+
+<script is:inline>
+  // Show/hide button after scrolling 200px
+  window.addEventListener('scroll', function() {
+    const btn = document.getElementById('backToTopBtn');
+    if (!btn) return;
+    if (window.scrollY > 200) {
+      btn.classList.remove('opacity-0');
+    } else {
+      btn.classList.add('opacity-0');
+    }
+  });
+  // Scroll to top on click
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<button
+  id="backToTopBtn"
+  class="fixed bottom-6 left-6 z-50 bg-[#163c60] text-white rounded-full shadow-lg p-3 transition-opacity duration-300 opacity-0 hover:bg-[#003DB0] focus:outline-none focus:ring-2 focus:ring-[#003DB0] group"
+  aria-label="Volver arriba"
+  onclick="scrollToTop()"
+  tabindex="0"
+>
+  <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  </svg>
+  <span class="absolute left-full ml-3 bottom-1/2 translate-y-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 group-focus:opacity-100 pointer-events-none transition-opacity duration-200 whitespace-nowrap shadow-lg select-none">
+    Volver arriba
+  </span>
+</button>

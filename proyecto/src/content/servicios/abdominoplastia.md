@@ -1,34 +1,14 @@
 ---
 title: "Abdominoplastia"
 slug: "abdominoplastia"
-short: "Contorno abdominal y eliminación de exceso de piel y grasa."
-image: "/images/services/abdominoplastia-card.jpg"
-technologies: ["VASER","MicroAire"]
-before: "/proyecto/public/images/results/a.png"
-after: "/proyecto/public/images/results/b.png"
+short: "Cirugía para mejorar el aspecto del abdomen eliminando exceso de piel flácida, grasa localizada y reparando los músculos abdominales."
+image: "/images/services/abdominoplastia.jpg"
+technologies: ["VASER", "MicroAire"]
+before: "/images/results/a.png"
+after: "/images/results/b.png"
+category: "Contorno Corporal"
+icon: "/images/icons/abdominoplastia.png"
+
 ---
 ## Procedimiento
-La abdominoplastia es un procedimiento quirúrgico dirigido a eliminar el exceso de piel y grasa del abdomen, y reforzar la musculatura de la pared abdominal para mejorar el contorno corporal. Se realiza bajo anestesia y puede acompañarse de lipoescultura para armonizar zonas adyacentes.
-
-## Indicaciones
-- Pérdida de tonicidad abdominal tras embarazos o grandes pérdidas de peso.
-- Acumulación de piel flácida y exceso de tejido subcutáneo.
-- Pacientes con expectativas realistas y buena salud general.
-
-## Riesgos
-- Hematoma.
-- Seroma.
-- Infección (rara).
-- Cicatrización anómala o necesidad de segunda intervención.
-
-## Recuperación
-- Reposo relativo las primeras 2 semanas.
-- Uso de faja postoperatoria según indicación.
-- Evitar esfuerzos intensos 4–6 semanas.
-
-## Resultados esperados
-Resultados estables alrededor de los 6 meses postoperatorios, con mejora notable del contorno y la silueta abdominal.
-
-## Centros de atención
-- Fundación Santa Fe de Bogotá
-- Centro Internacional de Cirugía Plástica
+La abdominoplastia o lipectomía, también conocida como dermolipectomía abdominal, es una cirugía tanto estética como en algunos casos reconstructiva, cuyo objetivo es mejorar el aspecto del abdomen eliminando exceso de piel flácida, grasa localizada y reparando los músculos abdominales debilitados o separados (diástasis abdominal) muchas veces causados por los embarazos. Este procedimiento ayuda a corregir la flacidez y la firmeza abdominal tras embarazos, grandes pérdidas de peso o envejecimiento, mejorar la tensión muscular del abdomen, eliminar piel sobrante con estrías y a lograr un abdomen más plano, firme y estético.

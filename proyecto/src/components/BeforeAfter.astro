@@ -1,0 +1,48 @@
+---
+import ResultSlider from './ResultSlider.jsx';
+
+/*
+  BeforeAfterSection.astro
+  Props:
+    - items: array de objetos { before, after, label, title, description, procedure }
+    - columns: número de columnas (opcional)
+*/
+const items = Astro.props.items ?? [
+  { before: '/images/results/liposuccion/liposuccion_antes.png', after: '/images/results/liposuccion/liposuccion_despues.png', label: 'Liposucción', title: 'Liposucción', description: 'Resultado a los 6 meses post cirugía', procedure: 'procedimiento de cirugía estética que consiste en eliminar depósitos de grasa localizada' },
+  { before: '/images/results/pexia/pexia_antes.png', after: '/images/results/pexia/pexia_despues.png', label: 'Mastopexia', title: 'Pexia Mamaria', description: 'Resultados visibles a las 12 semanas', procedure: 'Disminuicion del tamaño y peso de los senos, asi como levantar, reafirmar y remodelar los senos caídos.' },
+  { before: '/images/results/mamoplastia/mamo_antes.png', after: '/images/results/mamoplastia/mamo_despues.png', label: 'Mamoplastia', title: 'Mamoplastia de aumento', description: 'Aumento y mejoramiento de senos', procedure: 'cirugía plástica que tiene como objetivo aumentar el tamaño y mejorar la forma de los senos' }
+];
+
+const columns = Astro.props.columns ?? { base: 1, md: 2, lg: 3 }; // puedes ajustar
+---
+
+<style>
+:root { --primary: #003DB0; }
+.section-title { color: var(--primary); }
+</style>
+
+<section id="resultados" class="max-w-6xl mx-auto px-6 py-12" data-aos="fade-up">
+  <header class="mb-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold section-title">Antes y Después — Resultados Reales</h2>
+    <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Casos clínicos reales con consentimiento informado. Haz clic para ver detalles del procedimiento.</p>
+  </header>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {items.map((it:any) => (
+      <div>
+        <!-- Cargar el slider en cliente para evitar SSR issues -->
+        <ResultSlider client:load
+          before={it.before}
+          after={it.after}
+          label={it.label}
+          title={it.title}
+          description={it.description}
+          procedure={it.procedure}
+          className="hover:scale-[1.01] transition-transform duration-300"
+        />
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-8 text-center text-sm text-gray-500">Imágenes con consentimiento informado. Los resultados varían según cada paciente.</div>
+</section>

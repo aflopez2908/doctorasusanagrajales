@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "astro build (generar sitemap)",
+			"type": "shell",
+			"command": "npx astro build",
+			"args": [],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

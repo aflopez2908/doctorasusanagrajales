@@ -1,5 +1,24 @@
 ---
-const testimonials = [
+/*
+  src/components/Testimonios.astro
+  Versión TypeScript-friendly:
+  - Define la interfaz Testimonial
+  - Castea Astro.props a Props
+  - Anota los parámetros del .map para evitar `implicit any`
+*/
+
+interface Testimonial {
+  name: string;
+  meta: string;
+  text: string;
+  photo?: string;
+}
+
+interface Props {
+  testimonials?: Testimonial[];
+}
+
+const defaultTestimonials: Testimonial[] = [
   {
     name: "Silvia F.",
     meta: "Paciente · Bogotá",
@@ -16,55 +35,139 @@ const testimonials = [
     text: "Profesionalismo total. Muy satisfecho con el trato y los resultados visibles después del tiempo de recuperación.",
   },
 ];
+
+const props = Astro.props as Props;
+const testimonials: Testimonial[] = props.testimonials ?? defaultTestimonials;
 ---
-<section id="testimonios" class="py-16 bg-white">
-  <div class="mx-auto px-6" style="max-width:1100px;">
-    <!-- título -->
+<style>
+  :root{
+    --primary: #003DB0;
+    --beige: #f8f9fb;
+    --muted: #dfe6ea;
+  }
+  .quote-mark {
+    font-size: 3.8rem;
+    color: rgba(22,60,96,0.08);
+    position: absolute;
+    left: -0.2em;
+    top: -0.7em;
+    z-index: 0;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  .avatar-gradient {
+    background: #163c60;
+    box-shadow: 0 8px 22px rgba(22,60,96,0.10);
+    border: 2px solid #fff;
+  }
+  .card-lift {
+    transition: transform .28s cubic-bezier(.2,.9,.28,1), box-shadow .28s;
+    border: 1.5px solid #e6e9ee;
+    background: var(--beige);
+    box-shadow: 0 10px 32px rgba(22,60,96,0.07);
+  }
+  .card-lift:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 28px 60px rgba(22,60,96,0.13);
+    border-color: #b6c6d6;
+  }
+  .testi-badge {
+    background: rgba(0,61,176,0.06);
+    border:1px solid rgba(0,61,176,0.08);
+    color: #163c60;
+    font-weight: 600;
+    border-radius: .6rem;
+    font-size: .92rem;
+    padding: .32rem .8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .testi-btn {
+    background: #163c60;
+    color: #fff;
+    font-weight: 600;
+    border-radius: .6rem;
+    font-size: .97rem;
+    padding: .5rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(22,60,96,0.10);
+    transition: transform .18s, box-shadow .18s, background .18s;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .testi-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(22,60,96,0.13);
+    background: #123a57;
+  }
+</style>
+
+<section id="testimonios" class="py-16 bg-white" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Header -->
     <div class="text-center mb-10">
-      <h2 class="text-3xl lg:text-4xl font-semibold text-[#163c60]" style="font-family: 'Playfair Display', serif;">
-        Testimonios
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto mt-3">
-        Experiencias reales y detalladas. La confianza de nuestras pacientes y pacientes respalda nuestro trabajo.
+      <h2 class="text-3xl md:text-4xl font-bold" style="color:var(--primary); font-family:'Playfair Display', serif;">Testimonios</h2>
+      <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+        Experiencias reales que reflejan nuestro enfoque clínico y el trato personalizado que ofrecemos.
       </p>
     </div>
 
-    <!-- grid centrado con tarjetas de ancho fijo -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-      {testimonials.map((t) => (
-        <article
-          class="w-full max-w-[360px] mx-auto bg-white border border-[#cac9ce] rounded-2xl p-6 shadow-[0_6px_18px_rgba(22,60,96,0.06)] transition-transform duration-200 hover:translate-y-[-6px]"
-          aria-label={`Testimonio de ${t.name}`}
-        >
-          <header class="flex items-center gap-4 mb-4">
-            <!-- avatar minimalista con iniciales -->
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium" style="background:#163c60;">
-              <span class="text-sm">{t.name.split(' ').map(n => n[0]).slice(0,2).join('')}</span>
-            </div>
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+      {testimonials.map((t: Testimonial, i: number) => {
+        const initials = t.name
+          .split(' ')
+          .map((n: string) => n[0])
+          .slice(0, 2)
+          .join('');
+        return (
+          <figure
+            class="card-lift flex flex-col rounded-2xl p-6 min-h-[220px]"
+            role="group"
+            aria-label={`Testimonio de ${t.name}`}
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
+          >
+            <header class="flex items-center gap-4 mb-4">
+              {t.photo ? (
+                <img src={t.photo} alt={`Foto de ${t.name}`} class="w-12 h-12 rounded-full object-cover border-2 border-white shadow" />
+              ) : (
+                <div class="w-12 h-12 rounded-full grid place-items-center text-white font-semibold avatar-gradient" aria-hidden="true">
+                  <span class="text-sm">{initials}</span>
+                </div>
+              )}
 
-            <div>
-              <h3 class="text-sm lg:text-base font-semibold text-[#163c60]" style="font-family: 'Playfair Display', serif;">{t.name}</h3>
-              <div class="text-xs text-gray-500 mt-1">{t.meta}</div>
-            </div>
-          </header>
+              <div>
+                <div class="text-[#163c60] font-semibold text-lg" style="font-family:'Playfair Display', serif;">{t.name}</div>
+                <div class="text-sm text-gray-500">{t.meta}</div>
+              </div>
+            </header>
 
-          <blockquote class="text-gray-700 italic leading-relaxed mb-4" style="min-height:80px;">
-            “{t.text}”
-          </blockquote>
+            <blockquote class="text-gray-700 leading-relaxed flex-1 relative">
+              <span class="quote-mark" aria-hidden>“</span>
+              <p class="relative z-10 ml-2">{t.text}</p>
+            </blockquote>
 
-          <footer class="flex items-center justify-between text-xs text-gray-500">
-            <div class="flex items-center gap-1">
-              <!-- estrellas pequeñas decorativas -->
-              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="#163c60" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.6l2.3 4.7 5.2.8-3.8 3.7.9 5.1L10 13.9 4.4 16.0l.9-5.1L1.5 7.2l5.2-.8L10 1.6z"/></svg>
-              <span>Paciente verificado</span>
-            </div>
+            <figcaption class="mt-6 flex items-center justify-between">
+              <div class="testi-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="opacity-90" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L20 6V11C20 16 16 20 12 22C8 20 4 16 4 11V6L12 2Z" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xs">Paciente verificado</span>
+              </div>
 
-            <div>
-              <a class="text-[#163c60] text-xs font-medium hover:underline" href="#contacto">Agendar consulta</a>
-            </div>
-          </footer>
-        </article>
-      ))}
+              <a href="#contacto" class="testi-btn" aria-label={`Agendar consulta - ${t.name}`}>
+                Agendar consulta
+              </a>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-500">
+      Imágenes y testimonios obtenidos con consentimiento informado. Los resultados varían según cada paciente.
     </div>
   </div>
 </section>

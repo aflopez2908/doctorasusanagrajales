@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, getEntryBySlug, render } from 'astro:content';
 import ResultSlider from '../../components/ResultSlider.jsx';
+import ContactForm from '../../components/ContactForm.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('servicios');
@@ -23,38 +26,229 @@ const whatsappLink = `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(
 )}`;
 ---
 
+<style>
+:root{
+  --primary: #003DB0; /* Azul profundo */
+  --beige: #EAE0D7;
+  --muted: #6B7280;
+  --text: #0f172a;
+  --surface: #f8fafc;
+  --card-border: #E6E9EE;
+  --base-size: 16px; /* base font size for calculations */
+}
+
+/* Global tweaks so the page feels more 'editorial' and readable */
+:where(main, section, article){ font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--text); }
+
+/* HERO */
+.service-hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(234,224,215,0.04));
+  border: 1px solid rgba(0,61,176,0.06);
+  padding: clamp(1rem, 2.5vw, 2.5rem);
+}
+.hero-grid{ display:grid; gap:1.5rem; align-items:start }
+.service-image-wrap{ position:relative; border-radius:1rem; overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:220px; box-shadow: 0 8px 28px rgba(3,61,176,0.06); }
+.service-image-wrap::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(0,0,0,0.06)); pointer-events:none }
+.service-image-wrap img{ width:100%; height:100%; object-fit:cover; display:block }
+
+/* Badge & meta */
+.service-badge{ background:var(--beige); color:#111827; padding:0.28rem 0.65rem; border-radius:0.6rem; font-weight:700; font-size:0.9rem; box-shadow: 0 1px 0 rgba(0,0,0,0.03); }
+.service-meta{ color:var(--muted); font-size:0.95rem }
+
+/* Headings & hero text */
+h1{ color:var(--primary); font-family: 'Playfair Display', serif; font-weight:800; margin:0 }
+.hero-subtitle{ color:#163c60; font-weight:600; font-size:1.35rem; line-height:1.15; max-width:60ch }
+
+/* Buttons */
+.btn-primary-cta{
+  background:var(--primary); color:white; padding:0.75rem 1.05rem; border-radius:0.7rem; font-weight:800; font-size:0.98rem;
+  box-shadow: 0 8px 26px rgba(3,61,176,0.14); transition: transform .14s ease, box-shadow .14s ease, opacity .12s ease;
+}
+.btn-primary-cta:hover{ transform:translateY(-3px); box-shadow: 0 16px 38px rgba(3,61,176,0.18); }
+.btn-outline-cta{ border:1px solid rgba(3,61,176,0.12); padding:0.68rem 0.95rem; border-radius:0.7rem; font-weight:700; background:white }
+.btn-outline-cta:hover{ transform:translateY(-2px); box-shadow: 0 6px 18px rgba(3,61,176,0.06) }
+
+/* Feature list */
+.feature-item{ display:flex; gap:0.75rem; align-items:flex-start }
+.feature-icon{ min-width:2.2rem; height:2.2rem; border-radius:0.6rem; display:grid; place-items:center; background:rgba(0,61,176,0.06); color:var(--primary); font-weight:700 }
+.feature-item p{ margin:0 }
+
+/* CARD with prose */
+.card{ background:var(--surface); border:1px solid var(--card-border); }
+.prose-custom{ font-size:1.03rem; line-height:1.85; color:#374151; max-width:100% }
+.prose-custom p{ font-size:1.02rem; margin-top:0.9rem }
+.prose-custom h2{ color:var(--text); margin-top:1.25rem; font-size:1.25rem }
+.prose-custom h3{ font-size:1.05rem; color:var(--primary); margin-top:1rem }
+.prose-custom a{ color:var(--primary); font-weight:700; text-decoration:underline }
+.prose-custom blockquote{ border-left:4px solid var(--primary); background:#FAFBFF; padding:1rem; color:#111827; margin:1rem 0 }
+.prose-custom ul li{ margin-top:0.5rem }
+.prose-custom img{ max-width:100%; height:auto; border-radius:0.6rem }
+.prose-custom table{ width:100%; border-collapse:collapse; margin-top:1rem }
+.prose-custom table th, .prose-custom table td{ border:1px solid #E6E9EE; padding:0.65rem; text-align:left }
+
+/* Procedure panel (makes procedure highly visible and readable) */
+.procedure-block{ display:block; background:linear-gradient(180deg, rgba(234,224,215,0.15), rgba(255,255,255,0.6)); border-left:4px solid var(--primary); padding:1rem 1.1rem; border-radius:0.75rem; margin-top:1rem }
+.procedure-block .procedure-title{ font-weight:800; font-size:1.05rem; color:var(--primary); margin-bottom:0.45rem }
+.procedure-block .procedure-content{ font-size:1rem; color:#263238; line-height:1.8 }
+
+/* Result slider container */
+.result-slider-wrap{ max-width:720px; margin-top:0.75rem }
+
+/* Floating contact aside */
+aside .rounded-lg{ transition: transform .16s ease; }
+aside .rounded-lg:hover{ transform:translateY(-6px) }
+
+/* Responsiveness */
+@media (min-width:768px){
+  .hero-grid{ grid-template-columns: 380px 1fr }
+  .hero-subtitle{ font-size:1.6rem }
+}
+
+@media (max-width:767px){
+  .hero-grid{ grid-template-columns: 1fr }
+  .service-image-wrap{ min-height:220px }
+  .prose-custom{ font-size:1rem }
+  .btn-primary-cta, .btn-outline-cta{ width:100%; justify-content:center }
+}
+
+/* Accessibility helpers */
+.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+</style>
+
 <Layout>
+
+  <Navbar />
+
+  <!-- Botón volver atrás -->
+  <div class="max-w-6xl mx-auto px-4 mt-6">
+    <button onclick="window.history.length > 1 ? window.history.back() : window.location.href='/servicios'" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#eae0d7] text-[#163c60] font-semibold shadow hover:bg-[#f8fafc] transition">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#163c60"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Volver atrás
+    </button>
+  </div>
+
   <main class="max-w-6xl mx-auto px-4 py-12 space-y-10">
-    
-    <!-- Encabezado -->
-    <div class="hero bg-base-200 rounded-xl p-8 shadow-lg">
-      <div class="hero-content flex-col md:flex-row gap-8">
-        <img src={service.data.image} class="max-w-sm rounded-lg shadow-2xl" alt={service.data.title}/>
-        <div>
-          <h1 class="text-5xl font-bold text-primary">{service.data.title}</h1>
-          <p class="py-6 text-lg">{service.data.short}</p>
-          <div class="flex flex-wrap gap-4">
-            <a href={whatsappLink} target="_blank" class="btn btn-primary">📱 Reservar por WhatsApp</a>
-            <a href="#contacto" class="btn btn-outline">📅 Agendar Consulta</a>
-          </div>
+
+    <!-- Encabezado modernizado -->
+    <section class="service-hero rounded-xl p-8 shadow-lg" data-aos="fade-up">
+      <div class="hero-content grid gap-8 hero-grid md:grid md:grid-cols-2 items-start">
+
+
+        <!-- Imagen principal o ícono elegante -->
+        <div class="service-image-wrap flex items-center justify-center bg-gradient-to-br from-[#f8fafc] to-[#eae0d7] relative">
+          {service.data.image ? (
+            <img src={service.data.image} alt={service.data.title} class="w-full h-full object-cover max-h-96" />
+          ) : (
+            <>
+              {service.data.icon ? (
+                <img src={service.data.icon} alt={`Icono ${service.data.title}`} class="w-24 h-24 object-contain opacity-90" />
+              ) : (
+                <svg width="72" height="72" fill="none" viewBox="0 0 24 24" stroke="#003DB0" class="opacity-60">
+                  <circle cx="12" cy="12" r="10" stroke="#003DB0" stroke-width="2" fill="#eae0d7" />
+                  <path d="M8 12h8M12 8v8" stroke="#003DB0" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              )}
+            </>
+          )}
         </div>
-      </div>
-    </div>
 
-    <!-- Contenido dinámico del servicio -->
-    <div class="card bg-base-100 shadow-xl p-8">
-      <article class="prose max-w-none">
+        <!-- Información del servicio -->
+        <div class="space-y-4">
+          <nav class="text-sm service-meta" aria-label="breadcrumb"> 
+            <a href="/" class="hover:underline">Inicio</a> / <a href="/servicios" class="hover:underline">Servicios</a> / <span class="text-gray-600">{service.data.title}</span>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <span class="service-badge">{service.data.category ?? 'Estética'}</span>
+            {service.data.duration ? <span class="service-meta">· {service.data.duration}</span> : null}
+            {service.data.price ? <span class="service-meta">· {service.data.price}</span> : null}
+          </div>
+
+
+          <h1 class="text-4xl font-bold leading-tight mb-2">{service.data.title}</h1>
+
+          <p class="hero-subtitle">{service.data.short}</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href={whatsappLink} target="_blank" class="btn-primary-cta inline-flex items-center justify-center gap-3" rel="noopener" aria-label="Reservar por WhatsApp">
+              <!-- Phone SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.99998C3 5.44771 3.44772 4.99998 4 4.99998H6.5C7.05228 4.99998 7.5 5.44771 7.5 5.99998V8.49998C7.5 8.8 7.34 9.09 7.06 9.27L6.02 9.98C6.8 12 8.98 14.18 11 14.96L11.71 13.92C11.89 13.64 12.18 13.48 12.48 13.48H14.98C15.5323 13.48 15.98 13.9277 15.98 14.48V16.98C15.98 17.5323 15.5323 17.98 14.98 17.98H12C9.24 17.98 6.6 16.52 4.98 14.3C3.36 12.08 3 9.34 3 6.98V5.99998Z" fill="currentColor"/></svg>
+              Reservar por WhatsApp
+            </a>
+
+            <a href="#contacto" class="btn-outline-cta inline-flex items-center justify-center gap-3" aria-label="Agendar consulta" data-aos="zoom-in">
+              <!-- Calendar SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 10H17M3 7H21M7 3V7M17 3V7M5 21H19C20.1046 21 21 20.1046 21 19V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Agendar consulta
+            </a>
+          </div>
+
+          <!-- Lista de beneficios / puntos clave -->
+          {service.data.features ? (
+            <ul class="mt-4 space-y-3">
+              {service.data.features.map((f: string) => (
+                <li class="feature-item">
+                  <div class="feature-icon" aria-hidden>
+                    <!-- Check small -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-800">{f}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Contenido dinámico del servicio (Markdown estilizado) -->
+    <section class="card bg-[#f8fafc] border border-[#e6e9ee] shadow-lg p-8 rounded-xl mt-6 text-2xl">
+      <article class="prose prose-lg prose-custom max-w-none">
         <Content />
-      </article>
-    </div>
 
-    <!-- Antes / Después -->
-    {service.data.before && service.data.after ? (
-      <div class="bg-base-200 p-8 rounded-xl shadow-lg">
-        <h3 class="text-2xl font-semibold text-primary mb-4">Resultados</h3>
-        <ResultSlider client:load before={service.data.before} after={service.data.after} />
+        {/* Si el campo `procedure` existe en frontmatter lo hacemos mucho más visible */}
+        {service.data.procedure ? (
+          <div class="procedure-block">
+            <div class="procedure-title">Procedimiento</div>
+            <div class="procedure-content text-[3rem]! text-amber-200!"><p class="texto!">{service.data.procedure}</p></div>
+          </div>
+        ) : null}
+      </article>
+    </section>
+
+    <!-- Antes / Después (si aplica) -->
+  {service.data.before && service.data.after ? (
+    <section class="bg-base-200 p-8 rounded-xl shadow-lg" data-aos="fade-up">
+      <h3 class="text-2xl font-semibold" style="color:var(--primary)">Resultados</h3>
+
+      <div class="mt-6 max-w-sm result-slider-wrap">
+        <ResultSlider client:load
+          before={service.data.before}
+          after={service.data.after}
+          label={service.data.label ?? 'Resultado'}
+          title={service.data.title ?? service.data.title}
+          description={service.data.resultDescription ?? 'Resultado clínico'}
+          procedure={service.data.procedure ?? ''}
+          className="mx-auto"
+        />
+        
       </div>
-    ) : null}
-    
+    </section>
+  ) : null}
+
+
+    <!-- Formulario de contacto como call to action -->
+<ContactForm />
+
   </main>
+
+  <Footer/>
 </Layout>
+
+<!-- NOTA: usa AOS en tu layout para inicializar: AOS.init(); -->

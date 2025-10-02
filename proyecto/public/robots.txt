@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dra.susanagrajales.com/sitemap-index.xml

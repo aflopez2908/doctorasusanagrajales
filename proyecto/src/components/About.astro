@@ -10,13 +10,13 @@ export interface Props {
 }
 
 const {
-  name = "Dra. Juanita",
+  name = "Dra. Susana Grajales ",
   title = "Cirujana Plástica Especializada",
-  image = "../../public/images/doc/docb.JPG",
-  bio = `Con formación médica de la prestigiosa Universidad Javeriana y especialización en Brasil, la cuna mundial de la cirugía estética, ofrezco procedimientos de contorno corporal con los más altos estándares de calidad.`,
+  image = "/images/doc/docb.JPG",
+  bio = `Médico cirujano con una sólida formación clínica y quirúrgica, especializada en cirugía de contorno corporal y medicina antienvejecimiento, se destaca por su alto compromiso con la investigación científica, la docencia médica y el desarrollo académico. Ha demostrado un profundo interés y entrenamiento en el área de manejo de pacientes quemados, consolidando su experticia en escenarios clínicos complejos. Miembro valioso en los equipos con los que ha trabajado, caracterizándose por su capacidad de liderazgo colaborativo y su contribución constante a un trabajo coordinado, eficiente y enfocado en la excelencia asistencial.`,
   education = [
     { title: "Universidad Javeriana", subtitle: "Formación médica" },
-    { title: "Especialización - Brasil", subtitle: "Cirugía estética" }
+    { title: "Universidad São Leopoldo Mandic- Brasil", subtitle: "Cirugía estética y recostructiva" }
   ],
   centers = [
     "Fundación Santa Fe de Bogotá",
@@ -35,11 +35,12 @@ const {
           alt={`Foto ${name}`}
           class="w-full max-w-md rounded-2xl shadow-xl object-cover"
           style="aspect-ratio: 4/5;"
+          data-aos="fade-up"
         />
       </div>
 
       <!-- Contenido -->
-      <div>
+      <div data-aos="fade-up">
         <h3 class="text-[#163c60] text-3xl font-bold mb-2">{name}</h3>
         <p class="text-gray-500 mb-6">{title}</p>
 
@@ -74,9 +75,7 @@ const {
           <ul class="space-y-2 text-gray-700">
             {centers.map((c) => (
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-[#163c60] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h2V5H5a2 2 0 00-2 2zM21 7v10a2 2 0 01-2 2h-2V5h2a2 2 0 012 2z" />
-                </svg>
+                <i class="fa-solid fa-hospital" style="color: #163C5F;"></i>
                 <span class="text-sm">{c}</span>
               </li>
             ))}

@@ -1,19 +1,12 @@
 ---
 title: "Estimuladores de Colágeno"
-slug: "estimuladores-de-colageno"
-short: "Rejuvenecimiento facial y corporal mediante bioestimuladores."
-image: "/images/services/colageno-card.jpg"
-technologies: ["Bioestimuladores"]
-before: "/images/results/colageno-before.jpg"
-after: "/images/results/colageno-after.jpg"
+slug: "estimuladores-colageno"
+short: "Sustancias inyectables que activan la producción natural de colágeno para mejorar la firmeza de la piel."
+image: "/images/services/estimuladores.png"
+category: "No Quirúrgicos"
+icon: "/images/icons/estimuladores-colageno.png"
+
 ---
 ## Procedimiento
-Infiltración de bioestimuladores para inducir producción de colágeno, mejorando textura y turgencia de piel en rostro y cuerpo.
+Los estimuladores de colágeno son sustancias inyectables que activan la producción natural de colágeno y elastina en la piel. A diferencia de los rellenos, mejoran la calidad y firmeza de la piel de forma progresiva, logrando un efecto lifting duradero.
 
-## Indicaciones
-- Flacidez leve-moderada.
-- Mejora de calidad de la piel.
-
-## Riesgos
-- Reacción inflamatoria local.
-- Nódulos (raro) — manejo con seguimiento.

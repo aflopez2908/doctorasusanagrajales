@@ -1,21 +1,120 @@
----
----
-<section id="hero" class="bg-gradient-to-b from-[#163c60] to-[#123a57] text-white py-20">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 px-6">
-    <div class="md:w-1/2">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight">Transforme su imagen con confianza</h1>
-      <p class="mt-4 text-lg text-[#dfe6ea]">Especialista en contorno corporal con formación internacional. Tecnología innovadora y resultados naturales.</p>
-      <div class="mt-6 flex gap-4">
-        <a href="#contacto" class="px-6 py-3 rounded-lg bg-white text-primary font-semibold text-black">Agendar Consulta</a>
-        <a href="#servicios" class="px-6 py-3 rounded-lg border border-white/40">Ver Servicios</a>
+<section id="hero" class="relative overflow-hidden" aria-label="Hero - Clínica Estética">
+  <style>
+    :root{
+      --primary: #003DB0; /* tu azul profundo */
+      --grad-start: #163c60;
+      --grad-end: #123a57;
+      --muted: #dfe6ea;
+    }
+
+    /* Decorativos y micro-interacciones */
+    .hero-bg {
+      background: linear-gradient(180deg, var(--grad-start), var(--grad-end));
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    }
+
+    .img-frame {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(2,6,23,0.45);
+      transition: transform .5s cubic-bezier(.2,.9,.3,1), box-shadow .3s ease;
+      transform-origin: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+    }
+    .img-frame:hover { transform: translateY(-6px) rotate(-0.6deg); box-shadow: 0 36px 80px rgba(2,6,23,0.55); }
+
+    .badge-soft {
+      background: rgba(255,255,255,0.08);
+      color: var(--muted);
+      padding: .35rem .6rem;
+      border-radius: .6rem;
+      font-weight:600;
+      font-size:.85rem;
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Indicadores de confianza */
+    .trust-item { font-size:.92rem; color: rgba(255,255,255,0.92); display:flex; gap:.6rem; align-items:center; }
+
+    /* Ajustes responsivos */
+    @media (min-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr 440px; align-items:center; }
+    }
+  </style>
+
+  <div class="hero-bg text-white py-12 md:py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid gap-8 hero-grid">
+
+        <!-- Columna izquierda: texto -->
+        <div class="space-y-6" data-aos="fade-right">
+          <div class="flex items-center gap-3">
+            <span class="badge-soft" aria-hidden="true">
+              <!-- Diploma SVG (discreto) -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false"><path d="M21 7V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Clínica Certificada
+            </span>
+            <span class="text-sm text-white/80">Formación internacional</span>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight" style="color:inherit">
+            Transforme su imagen con confianza
+          </h1>
+
+          <p class="text-lg text-white/85 max-w-xl">
+            Especialista en contorno corporal con formación internacional. Tecnología médica de vanguardia, protocolos seguros y resultados de apariencia natural.
+          </p>
+
+          <!-- CTA -->
+          <div class="flex flex-wrap gap-4 mt-2">
+            <a href="#contacto" class="inline-flex items-center gap-3 px-6 py-3 rounded-lg font-semibold shadow-sm"
+               style="background:var(--primary); color:white; box-shadow: 0 12px 36px rgba(0,61,176,0.14);"
+               aria-label="Agendar consulta" data-aos="zoom-in">
+              <!-- Calendar SVG small -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false"><path d="M7 10H17M3 7H21M7 3V7M17 3V7M5 21H19C20.1046 21 21 20.1046 21 19V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V19C3 20.1046 3.89543 21 5 21Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Agendar Consulta
+            </a>
+
+            <a href="#servicios" class="inline-flex items-center gap-3 px-6 py-3 rounded-lg font-semibold border border-white/30 text-white/95"
+               aria-label="Ver servicios" data-aos="zoom-in" data-aos-delay="80">
+              Ver Servicios
+            </a>
+          </div>
+
+          <!-- Confianza / micro-beneficios -->
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md">
+            <div class="trust-item">
+              <!-- Shield SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false"><path d="M12 2L20 5V11C20 16 16 20 12 22C8 20 4 16 4 11V5L12 2Z" stroke="white" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Protocolos clínicos y seguimiento personalizado
+            </div>
+            <div class="trust-item">
+              <!-- Device SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.1"/><path d="M8 20H16" stroke="white" stroke-width="1.1" stroke-linecap="round"/></svg>
+              Consultas presenciales y virtuales
+            </div>
+          </div>
+
+          <!-- Pequeño renglón de logos/afiliaciones (usa imágenes optimizadas) -->
+          <div class="mt-6 flex items-center gap-6" aria-hidden="true">
+            <img src="/images/logos/logo1.svg" alt="" class="h-8 opacity-80" />
+            <img src="/images/logos/logo2.svg" alt="" class="h-6 opacity-80" />
+            <img src="/images/logos/logo3.svg" alt="" class="h-7 opacity-80" />
+          </div>
+        </div>
+
+        <!-- Columna derecha: imagen con marco -->
+        <div class="flex justify-center md:justify-end" data-aos="fade-left">
+          <div class="img-frame w-[22.5rem] md:w-[25rem] lg:w-[28rem]" role="img" aria-label="Foto de la doctora Susana">
+            <img src="/images/doc/doca.JPG" alt="Dra. Susana - especialista en contorno corporal" class="w-full h-full object-cover block"/>
+          </div>
+        </div>
+
       </div>
-      <div class="mt-4 text-sm text-[#dfe6ea] flex gap-4">
-        <span>📍 Fundación Santa Fe</span>
-        <span>💻 Consultas Online</span>
-      </div>
-    </div>
-    <div class="md:w-1/2 flex justify-end">
-      <img src="../../public/images/doc/doca.JPG" alt="Dra. Nitiz" class="rounded-2xl shadow-xl w-80 object-cover"/>
     </div>
   </div>
 </section>
