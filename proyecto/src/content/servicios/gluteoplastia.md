@@ -1,8 +1,8 @@
 ---
 title: "Gluteoplastia"
 slug: "gluteoplastia"
-short: "Cirugía para aumentar, moldear o mejorar la forma y el volumen de los glúteos."
-image: "/images/services/gluteoplastia.png"
+short: "Cirugía que aumenta y mejora la forma de los glúteos usando implantes de silicona o grasa propia."
+image: "/images/servicios/gluteoplastia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/gluteoplastia.png"
 ---

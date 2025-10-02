@@ -1,8 +1,8 @@
 ---
 title: "Inyección de Grasa (Lipotransferencia)"
 slug: "inyeccion-grasa"
-short: "Procedimiento estético en el que se extrae grasa de una parte del cuerpo y se inyecta en otra zona para aumentar volumen, dar contornos o mejorar la calidad del tejido."
-image: "/images/services/inyeccion-grasa.png"
+short: "Procedimiento en el que se extrae grasa de una parte del cuerpo, se procesa y se inyecta en otra zona para aumentar volumen o mejorar el tejido."
+image: "/images/servicios/inyeccion-grasa.png"
 category: "Contorno Corporal"
 icon: "/images/icons/Inyeccion-grasa.png"
 ---

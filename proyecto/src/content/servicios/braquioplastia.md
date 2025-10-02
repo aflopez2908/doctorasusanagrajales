@@ -1,8 +1,8 @@
 ---
 title: "Braquioplastia (Lifting de Brazos)"
 slug: "braquioplastia"
-short: "Cirugía estética que elimina el exceso de piel y grasa en la parte interna y posterior de los brazos para mejorar su contorno y firmeza."
-image: "/images/services/braquioplastia.png"
+short: "Cirugía que elimina exceso de piel y grasa en los brazos para mejorar su contorno y firmeza."
+image: "/images/servicios/braquioplastia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/braquioplastia.png"
 ---

@@ -1,8 +1,8 @@
 ---
 title: "Aumento o Perfilamiento de Labios"
 slug: "aumento-labios"
-short: "Procedimiento para dar volumen, forma y definir el contorno de los labios."
-image: "/images/services/aumento-labios.png"
+short: "Procedimiento no quirúrgico que inyecta ácido hialurónico para aumentar volumen y definir los labios."
+image: "/images/servicios/aumento-labios.png"
 category: "No Quirúrgicos"
 technologies: ["VASER", "MicroAire"]
 before: "/images/results/a.png"

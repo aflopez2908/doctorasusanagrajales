@@ -1,8 +1,8 @@
 ---
 title: "Liposucción"
 slug: "liposuccion"
-short: "Procedimiento para eliminar depósitos de grasa localizada y mejorar el contorno corporal."
-image: "/images/services/liposuccion.png"
+short: "Cirugía que elimina depósitos de grasa localizada para mejorar el contorno corporal y definir la silueta."
+image: "/images/servicios/liposuccion.png"
 category: "Contorno Corporal"
 icon: "/images/icons/Lipoescultura.png"
 

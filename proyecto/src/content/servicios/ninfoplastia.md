@@ -1,8 +1,8 @@
 ---
 title: "Ninfoplastia (Labioplastia)"
 slug: "ninfoplastia"
-short: "Cirugía estética y funcional que consiste en la reducción o remodelación de los labios menores de la vulva."
-image: "/images/services/ninfoplastia.png"
+short: "Cirugía que reduce o remodela los labios menores de la vulva para mejorar la apariencia y aliviar molestias."
+image: "/images/servicios/ninfoplastia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/Ninfoplastia (Labioplastia).png"
 ---

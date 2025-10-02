@@ -1,8 +1,8 @@
 ---
 title: "Rinoplastia"
 slug: "rinoplastia"
-short: "Cirugía estética y funcional que tiene como objetivo modificar la forma, tamaño y estructura de la nariz para mejorar su apariencia y/o su función respiratoria."
-image: "/images/services/Rinoplastia.png"
+short: "Cirugía que modifica la forma, tamaño y estructura de la nariz para mejorar su apariencia y/o función respiratoria."
+image: "/images/servicios/Rinoplastia.png"
 category: "Cirugía Facial"
 icon: "/images/icons/Rinoplastia.png"
 ---

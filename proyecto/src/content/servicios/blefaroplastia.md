@@ -1,8 +1,8 @@
 ---
 title: "Blefaroplastia"
 slug: "blefaroplastia"
-short: "Cirugía estética para corregir los párpados, mejorando su apariencia y función."
-image: "/images/services/blefaroplastia.png"
+short: "Cirugía que elimina exceso de piel y grasa en los párpados para mejorar su apariencia y función."
+image: "/images/servicios/blefaroplastia.png"
 category: "Cirugía Facial"
 icon: "/images/icons/blefaroplastia.png"
 ---

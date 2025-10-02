@@ -1,8 +1,8 @@
 ---
 title: "Reducción Mamaria"
 slug: "reduccion-mamaria"
-short: "Cirugía plástica para disminuir el tamaño y peso de los senos, aliviando molestias físicas."
-image: "/images/services/reduccion-mamaria.png"
+short: "Cirugía que disminuye el tamaño y peso de los senos eliminando grasa, tejido glandular y piel."
+image: "/images/servicios/reduccion-mamaria.png"
 category: "Contorno Corporal"
 icon: "/images/icons/reduccion mamaria.png"
 

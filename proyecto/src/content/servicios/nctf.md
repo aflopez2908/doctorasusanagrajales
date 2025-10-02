@@ -1,8 +1,8 @@
 ---
 title: "NCTF - Factor de Tratamiento Celular"
 slug: "nctf"
-short: "Complejo revitalizante inyectable para rejuvenecer, hidratar y mejorar la calidad de la piel."
-image: "/images/services/nctf.png"
+short: "Complejo inyectable con ácido hialurónico, vitaminas y aminoácidos para rejuvenecer, hidratar y mejorar la calidad de la piel."
+image: "/images/servicios/nctf.png"
 category: "No Quirúrgicos"
 icon: "/images/icons/NCTF - Factor de Tratamiento Celular.png"
 

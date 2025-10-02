@@ -1,8 +1,8 @@
 ---
 title: "Alectomia"
 slug: "alectomia"
-short: "Procedimiento quirúrgico para reducir el ancho de las alas de la nariz."
-image: "/images/services/alectomia.png"
+short: "Cirugía que reduce el ancho de las alas nasales para lograr una nariz más estrecha y armónica."
+image: "/images/servicios/alectomia.png"
 category: "Cirugía Facial"
 technologies: ["VASER", "MicroAire"]
 before: "/images/results/a.png"

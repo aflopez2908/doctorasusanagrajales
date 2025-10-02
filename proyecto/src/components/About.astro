@@ -41,10 +41,10 @@ const {
 
       <!-- Contenido -->
       <div data-aos="fade-up">
-        <h3 class="text-[#163c60] text-3xl font-bold mb-2">{name}</h3>
-        <p class="text-gray-500 mb-6">{title}</p>
+        <h3 class="text-[#163c60] text-3xl font-bold mb-2" style="font-family:'Playfair Display', serif;">{name}</h3>
+        <p class="text-gray-500 mb-6" style="font-family:'Playfair Display', serif;">{title}</p>
 
-        <p class="text-gray-600 leading-relaxed mb-6">
+        <p class="text-gray-600 leading-relaxed mb-6" style="font-family:'Playfair Display', serif;">
           {bio}
         </p>
 
@@ -61,8 +61,8 @@ const {
                   </svg>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-[#163c60]">{e.title}</div>
-                  {e.subtitle ? <div class="text-xs text-gray-500 mt-1">{e.subtitle}</div> : null}
+                  <div class="text-sm font-semibold text-[#163c60]" style="font-family:'Playfair Display', serif;">{e.title}</div>
+                  {e.subtitle ? <div class="text-xs text-gray-500 mt-1" style="font-family:'Playfair Display', serif;">{e.subtitle}</div> : null}
                 </div>
               </div>
             </div>
@@ -71,12 +71,12 @@ const {
 
         <!-- Centros de atención -->
         <div class="bg-[#eef3f7] border border-[#e2e8ee] rounded-lg p-4">
-          <div class="text-sm font-semibold text-[#163c60] mb-3">Centros de Atención:</div>
+          <div class="text-sm font-semibold text-[#163c60] mb-3" style="font-family:'Playfair Display', serif;">Centros de Atención:</div>
           <ul class="space-y-2 text-gray-700">
             {centers.map((c) => (
               <li class="flex items-start gap-3">
                 <i class="fa-solid fa-hospital" style="color: #163C5F;"></i>
-                <span class="text-sm">{c}</span>
+                <span class="text-sm" style="font-family:'Playfair Display', serif;">{c}</span>
               </li>
             ))}
           </ul>

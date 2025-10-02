@@ -1,8 +1,8 @@
 ---
 title: "Bichectomía"
 slug: "bichectomia"
-short: "Procedimiento quirúrgico estético que consiste en la extracción parcial o total de las bolsas de Bichat para afinar el rostro."
-image: "/images/services/bichectomia.png"
+short: "Cirugía que extrae las bolsas de Bichat para afinar el rostro y marcar pómulos y mandíbula."
+image: "/images/servicios/bichectomia.png"
 category: "Cirugía Facial"
 icon: "/images/icons/bicectomia.png"
 ---

@@ -1,8 +1,8 @@
 ---
 title: "Abdominoplastia"
 slug: "abdominoplastia"
-short: "Cirugía para mejorar el aspecto del abdomen eliminando exceso de piel flácida, grasa localizada y reparando los músculos abdominales."
-image: "/images/services/abdominoplastia.jpg"
+short: "Cirugía que elimina exceso de piel, grasa y repara músculos abdominales para un abdomen más plano y firme."
+image: "/images/servicios/abdominoplastia.jpg"
 technologies: ["VASER", "MicroAire"]
 before: "/images/results/a.png"
 after: "/images/results/b.png"

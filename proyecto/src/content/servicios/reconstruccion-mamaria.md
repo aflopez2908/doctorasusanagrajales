@@ -1,8 +1,8 @@
 ---
 title: "Reconstrucción Mamaria"
 slug: "reconstruccion-mamaria"
-short: "Procedimiento quirúrgico que busca restaurar la forma, apariencia y tamaño de la mama después de una mastectomía."
-image: "/images/services/reconstruccion-mamaria.png"
+short: "Cirugía que restaura la forma, apariencia y tamaño de la mama después de una mastectomía, principalmente tras cáncer."
+image: "/images/servicios/reconstruccion-mamaria.png"
 category: "Reconstructiva"
 icon: "/images/icons/reconstruccion mamaria.png"
 ---

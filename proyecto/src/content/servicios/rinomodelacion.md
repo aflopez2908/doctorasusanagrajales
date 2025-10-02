@@ -1,8 +1,8 @@
 ---
 title: "Rinomodelación con Ácido Hialurónico"
 slug: "rinomodelacion"
-short: "Procedimiento estético no quirúrgico para modificar y mejorar la forma de la nariz mediante la inyección de ácido hialurónico."
-image: "/images/services/rinomodelacion.jpg"
+short: "Procedimiento no quirúrgico que mejora la forma de la nariz mediante inyección de ácido hialurónico en puntos estratégicos."
+image: "/images/servicios/rinomodelacion.jpg"
 category: "No Quirúrgicos"
 icon: "/images/icons/Rinomodelación con Ácido Hialurónico.png"
 

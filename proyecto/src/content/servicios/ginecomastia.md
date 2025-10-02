@@ -1,8 +1,8 @@
 ---
 title: "Corrección de Ginecomastia"
 slug: "ginecomastia"
-short: "Procedimiento quirúrgico para reducir el tamaño anormal de las glándulas mamarias en hombres."
-image: "/images/services/ginecomastia.png"
+short: "Cirugía que reduce el tamaño anormal de las glándulas mamarias en hombres para lograr un pecho más plano y masculino."
+image: "/images/servicios/ginecomastia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/ginecomastia.png"
 ---

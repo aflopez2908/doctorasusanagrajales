@@ -1,8 +1,8 @@
 ---
 title: "Corrección de Cicatriz"
 slug: "correccion-cicatriz"
-short: "Tratamientos para mejorar la apariencia y funcionalidad de cicatrices de diversa índole."
-image: "/images/services/correccion-cicatriz.png"
+short: "Tratamientos quirúrgicos y no quirúrgicos para mejorar la apariencia, textura y función de cicatrices."
+image: "/images/servicios/correccion-cicatriz.png"
 category: "Reconstructiva"
 icon: "/images/icons/correccion-cicatriz.png"
 ---

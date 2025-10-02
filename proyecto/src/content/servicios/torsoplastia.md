@@ -1,8 +1,8 @@
 ---
 title: "Torsoplastia"
 slug: "torsoplastia"
-short: "Procedimiento quirúrgico extenso enfocado en eliminar el exceso de piel y grasa que afecta el abdomen, los flancos, las nalgas y la espalda."
-image: "/images/services/torsoplastia.png"
+short: "Cirugía extensa que elimina exceso de piel y grasa en abdomen, flancos, nalgas y espalda tras gran pérdida de peso."
+image: "/images/servicios/torsoplastia.png"
 category: "Reconstructiva"
 icon: "/images/icons/Torsoplastia.png"
 ---

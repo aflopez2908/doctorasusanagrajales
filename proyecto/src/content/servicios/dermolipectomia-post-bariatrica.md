@@ -1,8 +1,8 @@
 ---
 title: "Dermolipectomía Post Bariátrica"
 slug: "dermolipectomia-post-bariatrica"
-short: "Conjunto de procedimientos quirúrgicos diseñados para eliminar el exceso de piel y tejido graso que queda después de una gran pérdida de peso."
-image: "/images/services/post-bariatrica.jpg"
+short: "Cirugías que eliminan exceso de piel y grasa tras gran pérdida de peso, mejorando comodidad e imagen corporal."
+image: "/images/servicios/post-bariatrica.jpg"
 category: "Reconstructiva"
 icon: "/images/icons/dermolipectomia-post-bariatrica.png"
 ---

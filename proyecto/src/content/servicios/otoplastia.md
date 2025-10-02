@@ -1,8 +1,8 @@
 ---
 title: "Otoplastia"
 slug: "otoplastia"
-short: "Cirugía estética que busca corregir la forma, posición o tamaño de las orejas para mejorar la armonía facial."
-image: "/images/services/Otoplastia.png"
+short: "Cirugía que corrige la forma, posición o tamaño de las orejas, especialmente si son prominentes o despegadas."
+image: "/images/servicios/Otoplastia.png"
 category: "Cirugía Facial"
 icon: "/images/icons/Otoplastia.png"
 ---

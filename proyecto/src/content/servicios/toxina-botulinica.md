@@ -1,8 +1,8 @@
 ---
 title: "Aplicación de Toxina Botulínica"
 slug: "toxina-botulinica"
-short: "La toxina botulínica es una proteína utilizada en medicina estética para relajar temporalmente los músculos y suavizar arrugas y líneas de expresión."
-image: "/images/services/toxina-botulinica.png"
+short: "Proteína utilizada en medicina estética para relajar temporalmente los músculos y suavizar arrugas y líneas de expresión."
+image: "/images/servicios/toxina-botulinica.png"
 category: "No Quirúrgicos"
 icon: "/images/icons/aplicación de Toxina Botulínica.png"
 ---

@@ -1,8 +1,8 @@
 ---
 title: "Estimuladores de Colágeno"
 slug: "estimuladores-colageno"
-short: "Sustancias inyectables que activan la producción natural de colágeno para mejorar la firmeza de la piel."
-image: "/images/services/estimuladores.png"
+short: "Sustancias inyectables que activan la producción de colágeno y elastina para mejorar la calidad y firmeza de la piel."
+image: "/images/servicios/estimuladores.png"
 category: "No Quirúrgicos"
 icon: "/images/icons/estimuladores-colageno.png"
 

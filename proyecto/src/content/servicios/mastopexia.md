@@ -1,8 +1,8 @@
 ---
 title: "Mastopexia o Pexia Mamaria"
 slug: "mastopexia"
-short: "Cirugía estética para levantar, reafirmar y remodelar los senos caídos."
-image: "/images/services/mastopexia.png"
+short: "Cirugía que levanta, reafirma y remodela los senos caídos eliminando piel y reubicando el tejido mamario y el pezón."
+image: "/images/servicios/mastopexia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/Mastopexia.png"
 

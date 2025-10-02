@@ -1,8 +1,8 @@
 ---
 title: "Tratamiento de Quemados y Quemaduras"
 slug: "tratamiento-quemados"
-short: "Cuidados médicos y quirúrgicos para lesiones por quemaduras, minimizando cicatrices y restaurando función."
-image: "/images/services/quemaduras.png"
+short: "Cuidados médicos y quirúrgicos para quemaduras, buscando cicatrización y restaurar la función de la piel."
+image: "/images/servicios/quemaduras.png"
 category: "Reconstructiva"
 ---
 ## Procedimiento

@@ -1,8 +1,8 @@
 ---
 title: "Explantación y Reconstrucción Mamaria"
 slug: "explantacion"
-short: "Retiro de implantes mamarios y reconstrucción con tejido del propio paciente."
-image: "/images/services/explantacion.jpg"
+short: "Cirugía para retirar implantes mamarios y reconstruir el seno con tejido autólogo del paciente."
+image: "/images/servicios/explantacion.jpg"
 category: "Reconstructiva"
 icon: "/images/icons/explantacion-mamaria.png"
 ---
