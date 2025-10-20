@@ -1,8 +1,15 @@
 ---
 // src/components/AosInitializer.astro
-import 'aos/dist/aos.css';
 ---
 <script>
   import AOS from 'aos';
-  AOS.init({ duration: 1000, once: true });
+  import 'aos/dist/aos.css';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ 
+      duration: 1000, 
+      once: true,
+      offset: 120
+    });
+  });
 </script>
