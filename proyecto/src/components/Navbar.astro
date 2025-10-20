@@ -1,4 +1,5 @@
 ---
+import contact from '../data/contact';
 ---
 <nav class="bg-white shadow-sm">
   <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
@@ -16,6 +17,6 @@
   <li><a href="/#testimonios" class="hover:underline">Testimonios</a></li>
   <li><a href="/#contacto" class="text-primary font-medium">Contacto</a></li>
     </ul>
-    <a href="https://wa.me/573015031356?text=Hola%20Dra.%20Nitiz%2C%20quiero%20agendar%20una%20consulta" target="_blank" class="md:inline-block px-4 py-2 rounded-lg bg-[#143B5C] text-white">Reservar</a>
+  <a href={`https://wa.me/${contact.whatsapp}?text=Hola%20Dra.%20Nitiz%2C%20quiero%20agendar%20una%20consulta`} target="_blank" class="md:inline-block px-4 py-2 rounded-lg bg-[#143B5C] text-white">Reservar</a>
   </div>
 </nav>

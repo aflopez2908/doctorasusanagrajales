@@ -5,6 +5,12 @@ short: "Cirugía que aumenta y mejora la forma de los glúteos usando implantes 
 image: "/images/servicios/gluteoplastia.png"
 category: "Contorno Corporal"
 icon: "/images/icons/gluteoplastia.png"
+recovery: 
+  time: "2 semanas"
+  care: "Se recomienda masajes de drenaje en el posoperatorio y uso continuo de fajas modeladoras durante un tiempo determinado"
+  details: "Periodo de recuperación de aproximadamente 2 semanas, se recomienda masajes de drenaje en el posoperatorio y uso continuo de fajas modeladoras durante un tiempo determinado."
 ---
+
+
 ## Procedimiento
 La gluteoplastia busca aumentar y mejorar la forma de los glúteos. Existen dos tipos principales: la gluteoplastia con implantes de silicona y la gluteoplastia con lipoinyección de grasa, donde se utiliza la propia grasa del paciente para lograr un resultado más natural.

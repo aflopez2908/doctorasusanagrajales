@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import contact from '../../data/contact';
 import { getCollection, getEntryBySlug, render } from 'astro:content';
 import ResultSlider from '../../components/ResultSlider.jsx';
 import ContactForm from '../../components/ContactForm.astro';
@@ -21,7 +22,7 @@ if (!service) {
 
 const { Content } = await render(service);
 
-const whatsappLink = `https://wa.me/57XXXXXXXXXX?text=${encodeURIComponent(
+const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
   `Hola Dra. Nitiz, me interesa ${service.data.title}. Quisiera agendar una consulta.`
 )}`;
 ---
@@ -97,6 +98,50 @@ h1{ color:var(--primary); font-family: 'Playfair Display', serif; font-weight:80
 /* Floating contact aside */
 aside .rounded-lg{ transition: transform .16s ease; }
 aside .rounded-lg:hover{ transform:translateY(-6px) }
+
+/* Recovery info styling */
+.recovery-card{ 
+  background: linear-gradient(145deg, rgba(0,61,176,0.03), rgba(234,224,215,0.08)); 
+  border: 1px solid rgba(0,61,176,0.1); 
+  border-radius: 1rem; 
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+.recovery-title{ 
+  color: var(--primary); 
+  font-weight: 800; 
+  font-size: 1.4rem; 
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.recovery-grid{ 
+  display: grid; 
+  gap: 1rem; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.recovery-item{ 
+  background: white; 
+  padding: 1rem; 
+  border-radius: 0.75rem; 
+  border: 1px solid rgba(0,61,176,0.06);
+  box-shadow: 0 2px 8px rgba(0,61,176,0.04);
+}
+.recovery-item-title{ 
+  color: var(--primary); 
+  font-weight: 700; 
+  font-size: 0.95rem; 
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.recovery-item-content{ 
+  color: #374151; 
+  font-size: 0.9rem; 
+  line-height: 1.6;
+}
 
 /* Responsiveness */
 @media (min-width:768px){
@@ -222,23 +267,157 @@ aside .rounded-lg:hover{ transform:translateY(-6px) }
       </article>
     </section>
 
-    <!-- Antes / Después (si aplica) -->
-  {service.data.before && service.data.after ? (
-    <section class="bg-base-200 p-8 rounded-xl shadow-lg" data-aos="fade-up">
-      <h3 class="text-2xl font-semibold" style="color:var(--primary)">Resultados</h3>
-
-      <div class="mt-6 max-w-sm result-slider-wrap">
-        <ResultSlider client:load
-          before={service.data.before}
-          after={service.data.after}
-          label={service.data.label ?? 'Resultado'}
-          title={service.data.title ?? service.data.title}
-          description={service.data.resultDescription ?? 'Resultado clínico'}
-          procedure={service.data.procedure ?? ''}
-          className="mx-auto"
-        />
+    <!-- Información de Recuperación -->
+    {service.data.recovery ? (
+      <section class="recovery-card" data-aos="fade-up">
+        <h3 class="recovery-title">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          Información de Recuperación
+        </h3>
         
+        <div class="recovery-grid">
+          {service.data.recovery.time ? (
+            <div class="recovery-item">
+              <div class="recovery-item-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Tiempo de Recuperación
+              </div>
+              <div class="recovery-item-content">{service.data.recovery.time}</div>
+            </div>
+          ) : null}
+          
+          {service.data.recovery.results ? (
+            <div class="recovery-item">
+              <div class="recovery-item-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                Resultados
+              </div>
+              <div class="recovery-item-content">{service.data.recovery.results}</div>
+            </div>
+          ) : null}
+          
+          {service.data.recovery.duration ? (
+            <div class="recovery-item">
+              <div class="recovery-item-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Duración de Resultados
+              </div>
+              <div class="recovery-item-content">{service.data.recovery.duration}</div>
+            </div>
+          ) : null}
+          
+          {service.data.recovery.scars ? (
+            <div class="recovery-item">
+              <div class="recovery-item-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Cicatrices
+              </div>
+              <div class="recovery-item-content">{service.data.recovery.scars}</div>
+            </div>
+          ) : null}
+          
+          {service.data.recovery.care ? (
+            <div class="recovery-item">
+              <div class="recovery-item-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Cuidados Especiales
+              </div>
+              <div class="recovery-item-content">{service.data.recovery.care}</div>
+            </div>
+          ) : null}
+        </div>
+        
+        {service.data.recovery.details ? (
+          <div class="recovery-item" style="margin-top: 1rem;">
+            <div class="recovery-item-title">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
+              Detalles Adicionales
+            </div>
+            <div class="recovery-item-content">{service.data.recovery.details}</div>
+          </div>
+        ) : null}
+      </section>
+    ) : null}
+
+    <!-- Resultados (antes/después) - maneja múltiples casos -->
+  {service.data.results && service.data.results.length > 0 ? (
+    <section class="bg-[#f8fafc] border border-[#e6e9ee] shadow-lg p-6 sm:p-8 rounded-xl mt-6" data-aos="fade-up">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-6" style="color:var(--primary)">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        Resultados {service.data.results.length > 1 ? `(${service.data.results.length} casos)` : ''}
+      </h3>
+
+      <div class={`grid gap-8 ${service.data.results.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'justify-center'}`}>
+        {service.data.results.map((result: any, index: number) => (
+          <div class="flex flex-col items-center">
+            {service.data.results.length > 1 && (
+              <h4 class="text-lg font-semibold mb-4 text-center" style="color:var(--primary)">
+                {result.label || `Caso ${index + 1}`}
+              </h4>
+            )}
+            
+            <div class="w-full max-w-md sm:max-w-lg">
+              <ResultSlider client:load
+                before={result.before}
+                after={result.after}
+                label={result.label || service.data.title}
+                title={service.data.title}
+                description={result.description || 'Resultado clínico'}
+                procedure={service.data.procedure || ''}
+                className="w-full"
+              />
+            </div>
+          </div>
+        ))}
       </div>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Casos reales de pacientes · Resultados pueden variar según cada caso
+      </p>
+    </section>
+  ) : service.data.before && service.data.after ? (
+    <!-- Fallback para formato anterior (before/after individual) -->
+    <section class="bg-[#f8fafc] border border-[#e6e9ee] shadow-lg p-6 sm:p-8 rounded-xl mt-6" data-aos="fade-up">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-6" style="color:var(--primary)">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        Resultados
+      </h3>
+
+      <div class="flex justify-center">
+        <div class="w-full max-w-md sm:max-w-lg">
+          <ResultSlider client:load
+            before={service.data.before}
+            after={service.data.after}
+            label={service.data.label || 'Resultado'}
+            title={service.data.title}
+            description={service.data.resultDescription || 'Resultado clínico'}
+            procedure={service.data.procedure || ''}
+            className="w-full"
+          />
+        </div>
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-4">
+        Casos reales de pacientes · Resultados pueden variar
+      </p>
     </section>
   ) : null}
 
