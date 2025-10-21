@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import ResultSlider from '../components/ResultSlider.jsx'; // o .tsx si es TypeScript
+import ServicesGrid from '../components/ServicesGrid.js';
+import ContactForm from '../components/ContactForm.astro';
+import Testimonios from '../components/Testimonios.astro';
+import Footer from '../components/Footer.astro';
+import WhastappButton from '../components/WhastappButton.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import BackToTop from '../components/BackToTop.astro';
+import { getCollection } from 'astro:content';
+import ServicesTabs from '../components/ServicesGrid.tsx';
+import type { Service } from '../components/ServicesGrid.tsx';
+
+// Traer todos los servicios desde los MD
+const services: Service[] = await getCollection('servicios');
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <Navbar />
+  <section class="hero"> 
+    <Hero/>
+
+  </section>
+  <WhastappButton />
+  
+  <section class="about py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+    <About />
+    </div>
+
+  </section>
+
+  <section class="servicios py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl text-center text-primary font-semibold mb-8">Servicios especialiizados</h2>
+      <h3 class="text-center">Tecnologia innovadora para resultados exepcionales</h3>
+        <ServicesTabs services={services} client:load />
+    </div>
+
+  </section>
+
+
+
+
+
+
+  <BeforeAfter/>
+
+
+  <section class="testimonios py-16 bg-gray-50">
+    <Testimonios />
+  </section>
+
+  <BackToTop />
+
+  <section class="contact">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <ContactForm />
+    </div>
+        
+        
+  </section>
+
+  <section>
+    <Footer />
+
+  </section>
+
+
+</Layout>
