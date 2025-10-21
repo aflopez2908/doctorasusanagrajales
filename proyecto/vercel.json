@@ -1,7 +1,9 @@
 {
-  "buildCommand": "npx astro build",
+  "version": 2,
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "devCommand": "npm run dev",
+  "devCommand": "npm run dev", 
   "installCommand": "npm install",
-  "framework": null
+  "framework": null,
+  "functions": {}
 }
