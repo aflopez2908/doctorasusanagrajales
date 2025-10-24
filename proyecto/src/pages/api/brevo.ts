@@ -60,8 +60,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Configurar la llamada a la API de Brevo usando fetch
-    const brevoApiKey = import.meta.env.BREVO_API_KEY;
+  // Configurar la llamada a la API de Brevo usando fetch
+  // En Vercel las variables de entorno están disponibles en process.env en tiempo de ejecución.
+  // Localmente en dev Astro también expone import.meta.env. Tomamos ambos por seguridad.
+  const brevoApiKey = process.env.BREVO_API_KEY || import.meta.env.BREVO_API_KEY;
     if (!brevoApiKey) {
       console.error('BREVO_API_KEY not configured');
       return new Response(
