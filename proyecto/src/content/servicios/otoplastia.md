@@ -8,7 +8,7 @@ icon: "/images/icons/Otoplastia.png"
 recovery: 
   time: "2 semanas"
   scars: "Cicatrices discretas"
-  details: "Periodo de recuperación de aproximadamente 2 semanas, cicatrices discretas."
+  details: "Período de recuperación de aproximadamente 2 semanas, cicatrices discretas."
 results:
   - before: "/images/results/otoplastia/otoplastia_caso1_antes.jpg"
     after: "/images/results/otoplastia/otoplastia_caso1_despues.jpg"
@@ -21,3 +21,4 @@ results:
 
 ## Procedimiento
 La otoplastia es una cirugía estética que busca corregir la forma, posición o tamaño de las orejas, especialmente cuando están muy prominentes o despegadas, para mejorar la armonía facial.
+

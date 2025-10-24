@@ -1,5 +1,7 @@
 ---
 // src/components/About.astro
+import MotionWrapper from './MotionWrapper'
+
 export interface Props {
   name?: string;
   title?: string;
@@ -13,10 +15,10 @@ const {
   name = "Dra. Susana Grajales ",
   title = "Cirujana Plástica Especializada",
   image = "/images/doc/docb.JPG",
-  bio = `Médico cirujano con una sólida formación clínica y quirúrgica, especializada en cirugía de contorno corporal y medicina antienvejecimiento, se destaca por su alto compromiso con la investigación científica, la docencia médica y el desarrollo académico. Ha demostrado un profundo interés y entrenamiento en el área de manejo de pacientes quemados, consolidando su experticia en escenarios clínicos complejos. Miembro valioso en los equipos con los que ha trabajado, caracterizándose por su capacidad de liderazgo colaborativo y su contribución constante a un trabajo coordinado, eficiente y enfocado en la excelencia asistencial.`,
+  bio = `Médica cirujana con una sólida formación clínica y quirúrgica, especializada en cirugía de contorno corporal y medicina antienvejecimiento. Se destaca por su alto compromiso con la investigación científica, la docencia médica y el desarrollo académico. Ha demostrado un profundo interés y entrenamiento en el área de manejo de pacientes quemados, consolidando su experiencia en escenarios clínicos complejos. Miembro valioso en los equipos con los que ha trabajado, caracterizándose por su capacidad de liderazgo colaborativo y su contribución constante a un trabajo coordinado, eficiente y enfocado en la excelencia asistencial.`,
   education = [
     { title: "Universidad Javeriana", subtitle: "Formación médica" },
-    { title: "Universidad São Leopoldo Mandic- Brasil", subtitle: "Cirugía estética y recostructiva" }
+    { title: "Universidad São Leopoldo Mandic - Brasil", subtitle: "Cirugía estética y reconstructiva" }
   ],
   centers = [
     "Unidad de Especialistas Santafé Real · Calle 124 #7-38, Cons. 601, Bogotá D.C.",
@@ -29,59 +31,66 @@ const {
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       <!-- Imagen -->
-      <div class="flex justify-center md:justify-start">
-        <img
-          src={image}
-          alt={`Foto ${name}`}
-          class="w-full max-w-md rounded-2xl shadow-xl object-cover"
-          style="aspect-ratio: 4/5;"
-          data-aos="fade-up"
-        />
-      </div>
+      <MotionWrapper client:load animation="fadeIn" duration={0.8}>
+        <div class="flex justify-center md:justify-start">
+          <img
+            src={image}
+            alt={`Foto ${name}`}
+            class="w-full max-w-md rounded-2xl shadow-xl object-cover"
+            style="aspect-ratio: 4/5;"
+          />
+        </div>
+      </MotionWrapper>
 
       <!-- Contenido -->
-      <div data-aos="fade-up">
-        <h3 class="text-[#163c60] text-3xl font-bold mb-2" style="font-family:'Playfair Display', serif;">{name}</h3>
-        <p class="text-gray-500 mb-6" style="font-family:'Playfair Display', serif;">{title}</p>
+      <MotionWrapper client:load animation="slideUp" duration={0.8} delay={0.2}>
+        <div>
+          <h3 class="text-[#163c60] text-3xl font-bold mb-2" style="font-family:'Playfair Display', serif;">{name}</h3>
+          <p class="text-gray-500 mb-6" style="font-family:'Playfair Display', serif;">{title}</p>
 
-        <p class="text-gray-600 leading-relaxed mb-6" style="font-family:'Playfair Display', serif;">
-          {bio}
-        </p>
+          <p class="text-gray-600 leading-relaxed mb-6" style="font-family:'Playfair Display', serif;">
+            {bio}
+          </p>
 
-        <!-- Tarjetas de formación -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-6">
-          {education.map((e) => (
-            <div class="flex-1 bg-white border border-gray-100 rounded-lg p-4 shadow-sm">
-              <div class="flex items-start gap-3">
-                <!-- Icono simple (graduación / globo) -->
-                <div class="flex-shrink-0">
-                  <svg class="w-6 h-6 text-[#163c60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422A12 12 0 0112 21.5 12 12 0 015.84 10.578L12 14z" />
-                  </svg>
+          <!-- Tarjetas de formación -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            {education.map((e, index) => (
+              <MotionWrapper client:load animation="scaleIn" duration={0.6} delay={0.4 + index * 0.1}>
+                <div class="flex-1 bg-white border border-gray-100 rounded-lg p-4 shadow-sm">
+                  <div class="flex items-start gap-3">
+                    <!-- Icono simple (graduación / globo) -->
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-[#163c60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422A12 12 0 0112 21.5 12 12 0 015.84 10.578L12 14z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold text-[#163c60]" style="font-family:'Playfair Display', serif;">{e.title}</div>
+                      {e.subtitle ? <div class="text-xs text-gray-500 mt-1" style="font-family:'Playfair Display', serif;">{e.subtitle}</div> : null}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="text-sm font-semibold text-[#163c60]" style="font-family:'Playfair Display', serif;">{e.title}</div>
-                  {e.subtitle ? <div class="text-xs text-gray-500 mt-1" style="font-family:'Playfair Display', serif;">{e.subtitle}</div> : null}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Centros de atención -->
-        <div class="bg-[#eef3f7] border border-[#e2e8ee] rounded-lg p-4">
-          <div class="text-sm font-semibold text-[#163c60] mb-3" style="font-family:'Playfair Display', serif;">Centros de Atención:</div>
-          <ul class="space-y-2 text-gray-700">
-            {centers.map((c) => (
-              <li class="flex items-start gap-3">
-                <i class="fa-solid fa-hospital" style="color: #163C5F;"></i>
-                <span class="text-sm" style="font-family:'Playfair Display', serif;">{c}</span>
-              </li>
+              </MotionWrapper>
             ))}
-          </ul>
+          </div>
+
+          <!-- Centros de atención -->
+          <MotionWrapper client:load animation="slideUp" duration={0.6} delay={0.6}>
+            <div class="bg-[#eef3f7] border border-[#e2e8ee] rounded-lg p-4">
+              <div class="text-sm font-semibold text-[#163c60] mb-3" style="font-family:'Playfair Display', serif;">Centros de Atención:</div>
+              <ul class="space-y-2 text-gray-700">
+                {centers.map((c) => (
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-hospital" style="color: #163C5F;"></i>
+                    <span class="text-sm" style="font-family:'Playfair Display', serif;">{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </MotionWrapper>
         </div>
-      </div>
+      </MotionWrapper>
     </div>
   </div>
 </section>

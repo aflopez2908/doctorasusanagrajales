@@ -31,3 +31,4 @@ El tratamiento de quemaduras abarca una serie de cuidados médicos y terapéutic
 
 ## Resultados esperados
 Mejora de la apariencia de las cicatrices, restauración de la funcionalidad de las áreas afectadas y una mejor calidad de vida.
+

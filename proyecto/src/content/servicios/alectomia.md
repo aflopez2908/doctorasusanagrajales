@@ -9,7 +9,7 @@ icon: "/images/icons/alectomia.png"
 recovery: 
   time: "1 semana"
   scars: "Cicatrices discretas"
-  details: "Periodo de recuperación de aproximadamente 1 semana, cicatrices discretas."
+  details: "Período de recuperación de aproximadamente 1 semana, cicatrices discretas."
 results:
   - before: "/images/results/alctomia/alectomia_caso1_antes.jpg"
     after: "/images/results/alctomia/alectomia_caso1_despues.jpg"
@@ -23,4 +23,5 @@ results:
 
 ## Procedimiento
 La alectomia es un procedimiento quirúrgico que consiste en la extirpación parcial de las alas nasales para corregir el ancho de las fosas nasales o el tamaño de las alas. Ayuda a lograr una nariz más estrecha y en armonía con el rostro.
+
 

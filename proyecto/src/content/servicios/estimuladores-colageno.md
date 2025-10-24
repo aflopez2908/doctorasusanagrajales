@@ -16,3 +16,4 @@ recovery:
 ## Procedimiento
 Los estimuladores de colágeno son sustancias inyectables que activan la producción natural de colágeno y elastina en la piel. A diferencia de los rellenos, mejoran la calidad y firmeza de la piel de forma progresiva, logrando un efecto lifting duradero.
 
+

@@ -24,3 +24,4 @@ results:
 ## Procedimiento
 Este procedimiento estético no quirúrgico consiste en inyectar ácido hialurónico para aumentar el volumen, definir el contorno y mejorar la hidratación profunda de los labios. Ayuda a lograr unos labios más sensuales y definidos, de forma segura y temporal.
 
+

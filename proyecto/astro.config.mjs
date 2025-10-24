@@ -1,14 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: vercel({}),
+  output: 'static', // Mantenemos static pero las API routes tendrán prerender: false
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
   site: 'https://dra.susanagrajales.com',
   vite: {
     plugins: [tailwindcss()],

@@ -14,3 +14,4 @@ recovery:
 
 ## Procedimiento
 La reconstrucción mamaria es un procedimiento quirúrgico que busca restaurar la forma, apariencia y tamaño de la mama después de una mastectomía (extirpación total o parcial de la mama) principalmente posterior a tratamientos de cáncer.
+

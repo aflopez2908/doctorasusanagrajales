@@ -11,7 +11,7 @@ recovery:
   time: "1 a 2 semanas"
   care: "Uso de sostén especial, evitar ejercicio intenso las primeras semanas"
   scars: "Cicatrices pequeñas y discretas"
-  details: "Periodo de recuperación de aproximadamente 1 a 2 semanas, cicatrices pequeñas. Se pueden implementar 2 tipos de procedimiento: implantes mamarios de silicona o transferencia de grasa (mamoplastia híbrida)."
+  details: "Período de recuperación de aproximadamente 1 a 2 semanas, cicatrices pequeñas. Se pueden implementar 2 tipos de procedimiento: implantes mamarios de silicona o transferencia de grasa (mamoplastia híbrida)."
 results:
   - before: "/images/results/mamoplastia/mamo_antes.png"
     after: "/images/results/mamoplastia/mamo_despues.png"
@@ -22,3 +22,4 @@ results:
 
 ## Procedimiento
 La mamoplastia de aumento es una cirugía plástica que tiene como objetivo aumentar el tamaño y mejorar la forma de los senos, generalmente mediante el uso de implantes mamarios.
+

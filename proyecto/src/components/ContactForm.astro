@@ -1,119 +1,415 @@
 ---
 import contact from '../data/contact';
+import MotionWrapper from './MotionWrapper'
 --- 
 
-
-<section class="min-h-[70vh] py-16 bg-gradient-to-b from-[#f8f9fb] to-white">
+<section id="contacto" class="min-h-[70vh] py-16 bg-gradient-to-b from-[#f8f9fb] to-white">
   <div class="container mx-auto px-6">
     <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
       <!-- Left: Info / Marca -->
-      <div class="space-y-4">
-        <h2 class="text-3xl lg:text-4xl font-semibold leading-tight" style="font-family:'Playfair Display', serif;">Agenda tu Consulta</h2>
-        <p class="text-gray-600 max-w-xl" style="font-family:'Playfair Display', serif;">
-          El primer paso hacia tu transformación. Completa el formulario y nos pondremos en contacto para confirmar la cita.
-        </p>
+      <MotionWrapper client:load animation="slideRight" duration={0.8}>
+        <div class="space-y-4">
+          <h2 class="text-3xl lg:text-4xl font-semibold leading-tight" style="font-family:'Playfair Display', serif;">Agenda tu consulta</h2>
+          <p class="text-gray-600 max-w-xl" style="font-family:'Playfair Display', serif;">
+            El primer paso hacia tu transformación. Completa el formulario y nos pondremos en contacto para confirmar la cita.
+          </p>
 
-        <div class="mt-6 flex flex-col gap-2">
-          <div class="px-3 py-2 rounded-lg bg-[#163c60] text-white text-sm shadow-sm" style="font-family:'Playfair Display', serif;">
-            <strong>Atención personalizada</strong>
-            <div class="text-xs opacity-90">Respuesta en 24–48h</div>
-          </div>
-          <div class="px-3 py-2 rounded-lg border border-[#cac9ce] text-sm text-gray-700 bg-white" style="font-family:'Playfair Display', serif;">
-            <div class="text-sm">
-              Centros: {contact.centers[0].name} · {contact.centers[0].address} • {contact.centers[1].name} · {contact.centers[1].address}
-            </div>
-            <div class="text-sm mt-1">Tel / WhatsApp: {contact.phone}</div>
+          <div class="mt-6 flex flex-col gap-2">
+            <MotionWrapper client:load animation="scaleIn" duration={0.6} delay={0.3}>
+              <div class="px-3 py-2 rounded-lg bg-[#163c60] text-white text-sm shadow-sm" style="font-family:'Playfair Display', serif;">
+                <strong>Atención personalizada</strong>
+                <div class="text-xs opacity-90">Respuesta en 24–48h</div>
+              </div>
+            </MotionWrapper>
+            <MotionWrapper client:load animation="scaleIn" duration={0.6} delay={0.5}>
+              <div class="px-3 py-2 rounded-lg border border-[#cac9ce] text-sm text-gray-700 bg-white" style="font-family:'Playfair Display', serif;">
+                <div class="text-sm">
+                  Centros: {contact.centers[0].name} · {contact.centers[0].address} • {contact.centers[1].name} · {contact.centers[1].address}
+                </div>
+                <div class="text-sm mt-1">Tel / WhatsApp: {contact.phone}</div>
+              </div>
+            </MotionWrapper>
           </div>
         </div>
-      </div>
+      </MotionWrapper>
 
       <!-- Right: Formulario -->
-      <div>
-        <form id="contactForm" class="bg-white border border-[#cac9ce] rounded-2xl2 p-6 shadow-md" autocomplete="off" novalidate>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <label class="flex flex-col">
-              <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Nombre Completo *</span>
-              <input name="name" required type="text" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="Ej. María Pérez" />
-            </label>
+      <MotionWrapper client:load animation="slideLeft" duration={0.8} delay={0.2}>
+        <div>
+          <form id="contactForm" class="bg-white border border-[#cac9ce] rounded-2xl2 p-6 shadow-md" autocomplete="off" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="flex flex-col">
+                <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Nombre completo *</span>
+                <input 
+                  name="name" 
+                  required 
+                  type="text" 
+                  minlength="2"
+                  maxlength="100"
+                  autocomplete="name"
+                  class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition duration-200" 
+                  placeholder="Ej. María González Pérez" 
+                />
+              </label>
 
-            <label class="flex flex-col">
-              <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Teléfono *</span>
-              <input name="phone" required type="tel" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="+57 300 000 0000" />
-            </label>
-          </div>
-
-          <div class="mt-4">
-            <label class="flex flex-col">
-              <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Email *</span>
-              <input name="email" required type="email" class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="correo@ejemplo.com" />
-            </label>
-          </div>
-
-          <div class="mt-4">
-            <label class="flex flex-col">
-              <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Procedimiento de interés</span>
-              <select name="procedure" class="select select-bordered w-full rounded-lg px-3 py-2 bg-white border border-[#e6e7e9]">
-                <option value="">Selecciona un procedimiento</option>
-                <option>Mamoplastia</option>
-                <option>Abdominoplastia</option>
-                <option>Lipoescultura</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="mt-4">
-            <label class="flex flex-col">
-              <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Mensaje</span>
-              <textarea name="message" rows="4" class="textarea textarea-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition" placeholder="Cuéntanos brevemente tu caso..."></textarea>
-            </label>
-          </div>
-
-          <div class="mt-5 flex items-center justify-between gap-4">
-            <div class="text-sm text-gray-600" style="font-family:'Playfair Display', serif;">
-              <label class="inline-flex items-center gap-2">
-                <input type="checkbox" name="consent" class="checkbox checkbox-sm border-[#e6e7e9]" />
-                <span>Acepto ser contactado</span>
+              <label class="flex flex-col">
+                <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Teléfono *</span>
+                <input 
+                  name="phone" 
+                  required 
+                  type="tel" 
+                  autocomplete="tel"
+                  pattern="[\+]?[0-9\s\-\(\)]+"
+                  class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition duration-200" 
+                  placeholder="+57 300 000 0000" 
+                />
               </label>
             </div>
 
-            <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#163c60] text-white font-medium shadow-sm hover:brightness-95 transition">
-              Enviar solicitud
-            </button>
-          </div>
+            <div class="mt-4">
+              <label class="flex flex-col">
+                <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Email *</span>
+                <input 
+                  name="email" 
+                  required 
+                  type="email" 
+                  autocomplete="email"
+                  maxlength="100"
+                  class="input input-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition duration-200" 
+                  placeholder="correo@ejemplo.com" 
+                />
+              </label>
+            </div>
 
-          <div id="formFeedback" class="mt-4 text-sm" aria-live="polite"></div>
-        </form>
-      </div>
+            <div class="mt-4">
+              <label class="flex flex-col">
+                <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Procedimiento de interés</span>
+                <select name="procedure" class="select select-bordered w-full rounded-lg px-4 py-3 bg-white border border-[#e6e7e9] focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition duration-200">
+                  <option value="">Selecciona un procedimiento</option>
+                  <option value="Mamoplastia de Aumento">Mamoplastia de Aumento</option>
+                  <option value="Mastopexia">Mastopexia (Levantamiento de Senos)</option>
+                  <option value="Reducción Mamaria">Reducción Mamaria</option>
+                  <option value="Abdominoplastia">Abdominoplastia</option>
+                  <option value="Lipoescultura">Lipoescultura</option>
+                  <option value="Gluteoplastia">Gluteoplastia</option>
+                  <option value="Rinoplastia">Rinoplastia</option>
+                  <option value="Blefaroplastia">Blefaroplastia</option>
+                  <option value="Lifting Facial">Lifting Facial</option>
+                  <option value="Ginecomastia">Ginecomastia</option>
+                  <option value="Otoplastia">Otoplastia</option>
+                  <option value="Tratamientos Faciales">Tratamientos Faciales</option>
+                  <option value="Otro procedimiento">Otro procedimiento</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="mt-4">
+              <label class="flex flex-col">
+                <span class="text-sm text-gray-700 mb-2" style="font-family:'Playfair Display', serif;">Mensaje</span>
+                <textarea 
+                  name="message" 
+                  rows="4" 
+                  maxlength="1000"
+                  class="textarea textarea-ghost bg-[#fafafa] border border-[#e6e7e9] rounded-lg px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-[#163c60]/20 transition duration-200" 
+                  placeholder="Cuéntanos brevemente tu caso, expectativas o preguntas específicas..."
+                ></textarea>
+                <div class="text-xs text-gray-500 mt-1 text-right">
+                  <span class="character-counter">0</span>/1000 caracteres
+                </div>
+              </label>
+            </div>
+
+            <div class="mt-5 flex items-center justify-between gap-4">
+              <div class="text-sm text-gray-600" style="font-family:'Playfair Display', serif;">
+                <label class="inline-flex items-center gap-2">
+                  <input type="checkbox" name="consent" class="checkbox checkbox-sm border-[#e6e7e9]" />
+                  <span>Acepto ser contactado</span>
+                </label>
+              </div>
+
+              <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#163c60] text-white font-medium shadow-sm hover:brightness-95 transition">
+                Enviar solicitud
+              </button>
+            </div>
+
+            <div id="formFeedback" class="mt-4 text-sm" aria-live="polite"></div>
+          </form>
+        </div>
+      </MotionWrapper>
     </div>
   </div>
 
   <script type="module">
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
+    const submitButton = form.querySelector('button[type="submit"]');
+    
+    // Funciones de validación
+    function validateName(name) {
+      if (!name || name.trim().length < 2) {
+        return 'El nombre debe tener al menos 2 caracteres';
+      }
+      if (name.trim().length > 100) {
+        return 'El nombre es demasiado largo (máximo 100 caracteres)';
+      }
+      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(name.trim())) {
+        return 'El nombre solo puede contener letras y espacios';
+      }
+      return null;
+    }
+
+    function validateEmail(email) {
+      if (!email || email.trim().length === 0) {
+        return 'El email es obligatorio';
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.trim())) {
+        return 'Por favor ingresa un email válido';
+      }
+      if (email.trim().length > 100) {
+        return 'El email es demasiado largo';
+      }
+      return null;
+    }
+
+    function validatePhone(phone) {
+      if (!phone || phone.trim().length === 0) {
+        return 'El teléfono es obligatorio';
+      }
+      
+      // Limpiar el teléfono de espacios y caracteres especiales
+      const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
+      
+      // Validar que solo contenga números y el símbolo +
+      if (!/^[\+]?[0-9]+$/.test(cleanPhone)) {
+        return 'El teléfono solo puede contener números y el símbolo +';
+      }
+      
+      // Validar longitud (Colombia: 10 dígitos sin +57, o 13 con +57)
+      if (cleanPhone.startsWith('+57')) {
+        if (cleanPhone.length !== 13) {
+          return 'Teléfono colombiano debe tener 10 dígitos después de +57';
+        }
+      } else if (cleanPhone.startsWith('+')) {
+        if (cleanPhone.length < 8 || cleanPhone.length > 15) {
+          return 'Teléfono internacional debe tener entre 7 y 14 dígitos';
+        }
+      } else {
+        if (cleanPhone.length !== 10) {
+          return 'Teléfono colombiano debe tener 10 dígitos';
+        }
+      }
+      
+      return null;
+    }
+
+    function validateMessage(message) {
+      if (message && message.trim().length > 1000) {
+        return 'El mensaje es demasiado largo (máximo 1000 caracteres)';
+      }
+      return null;
+    }
+
+    function showFieldError(fieldName, errorMessage) {
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      if (field) {
+        field.classList.add('border-red-500', 'bg-red-50');
+        field.classList.remove('border-[#e6e7e9]', 'bg-[#fafafa]');
+        
+        // Agregar mensaje de error específico
+        let errorDiv = field.parentNode.querySelector('.field-error');
+        if (!errorDiv) {
+          errorDiv = document.createElement('div');
+          errorDiv.className = 'field-error text-xs text-red-600 mt-1';
+          field.parentNode.appendChild(errorDiv);
+        }
+        errorDiv.textContent = errorMessage;
+      }
+    }
+
+    function clearFieldError(fieldName) {
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      if (field) {
+        field.classList.remove('border-red-500', 'bg-red-50');
+        field.classList.add('border-[#e6e7e9]', 'bg-[#fafafa]');
+        
+        const errorDiv = field.parentNode.querySelector('.field-error');
+        if (errorDiv) {
+          errorDiv.remove();
+        }
+      }
+    }
+
+    function clearAllFieldErrors() {
+      ['name', 'email', 'phone', 'message'].forEach(clearFieldError);
+    }
+
+    function setFormLoading(loading) {
+      if (loading) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = 'Enviando...';
+        submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+      } else {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Enviar solicitud';
+        submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+      }
+    }
+
+    // Contador de caracteres para el mensaje
+    const messageField = form.querySelector('[name="message"]');
+    const characterCounter = form.querySelector('.character-counter');
+    
+    if (messageField && characterCounter) {
+      messageField.addEventListener('input', () => {
+        const length = messageField.value.length;
+        characterCounter.textContent = length;
+        
+        // Cambiar color según se acerque al límite
+        if (length > 900) {
+          characterCounter.classList.add('text-red-600');
+          characterCounter.classList.remove('text-gray-500', 'text-amber-600');
+        } else if (length > 800) {
+          characterCounter.classList.add('text-amber-600');
+          characterCounter.classList.remove('text-gray-500', 'text-red-600');
+        } else {
+          characterCounter.classList.add('text-gray-500');
+          characterCounter.classList.remove('text-amber-600', 'text-red-600');
+        }
+      });
+    }
+
+    // Validación en tiempo real
+    ['name', 'email', 'phone', 'message'].forEach(fieldName => {
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      if (field) {
+        field.addEventListener('blur', () => {
+          const value = field.value;
+          let error = null;
+          
+          switch(fieldName) {
+            case 'name':
+              error = validateName(value);
+              break;
+            case 'email':
+              error = validateEmail(value);
+              break;
+            case 'phone':
+              error = validatePhone(value);
+              break;
+            case 'message':
+              error = validateMessage(value);
+              break;
+          }
+          
+          if (error) {
+            showFieldError(fieldName, error);
+          } else {
+            clearFieldError(fieldName);
+          }
+        });
+        
+        // Limpiar errores mientras escribe
+        field.addEventListener('input', () => {
+          clearFieldError(fieldName);
+        });
+      }
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       feedback.innerHTML = '';
+      clearAllFieldErrors();
 
       const data = new FormData(form);
-      if (!data.get('name') || !data.get('email') || !data.get('phone')) {
-        feedback.innerHTML = '<div class="text-sm text-amber-700">Por favor completa los campos obligatorios*</div>';
+      const name = data.get('name')?.toString().trim() || '';
+      const email = data.get('email')?.toString().trim() || '';
+      const phone = data.get('phone')?.toString().trim() || '';
+      const procedure = data.get('procedure')?.toString() || '';
+      const message = data.get('message')?.toString().trim() || '';
+      const consent = data.get('consent');
+
+      // Validar todos los campos
+      const errors = [];
+      
+      const nameError = validateName(name);
+      if (nameError) {
+        errors.push({ field: 'name', message: nameError });
+      }
+      
+      const emailError = validateEmail(email);
+      if (emailError) {
+        errors.push({ field: 'email', message: emailError });
+      }
+      
+      const phoneError = validatePhone(phone);
+      if (phoneError) {
+        errors.push({ field: 'phone', message: phoneError });
+      }
+      
+      const messageError = validateMessage(message);
+      if (messageError) {
+        errors.push({ field: 'message', message: messageError });
+      }
+
+      // Validar consentimiento
+      if (!consent) {
+        feedback.innerHTML = '<div class="text-sm text-amber-700">⚠️ Debes aceptar ser contactado para continuar</div>';
         return;
       }
 
+      // Mostrar errores si los hay
+      if (errors.length > 0) {
+        errors.forEach(error => {
+          showFieldError(error.field, error.message);
+        });
+        
+        feedback.innerHTML = '<div class="text-sm text-red-700">❌ Por favor corrige los errores marcados</div>';
+        
+        // Scroll al primer campo con error
+        const firstErrorField = form.querySelector(`[name="${errors[0].field}"]`);
+        if (firstErrorField) {
+          firstErrorField.focus();
+          firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        return;
+      }
+
+      // Todo válido, proceder con el envío
+      setFormLoading(true);
+      
       try {
-        const resp = await fetch('/api/contact', { method: 'POST', body: data });
-        if (!resp.ok) throw new Error('server error');
+        const resp = await fetch('/api/brevo', { method: 'POST', body: data });
         const json = await resp.json();
-        if (json.success) {
-          feedback.innerHTML = '<div class="text-sm text-green-700">¡Solicitud enviada! Te contactamos pronto.</div>';
+        
+        if (resp.ok && json.success) {
+          feedback.innerHTML = `
+            <div class="text-sm text-green-700 p-3 bg-green-50 rounded-lg border border-green-200">
+              ✅ <strong>¡Solicitud enviada exitosamente!</strong><br>
+              Te contactaremos en las próximas 24-48 horas.
+            </div>
+          `;
           form.reset();
         } else {
-          feedback.innerHTML = '<div class="text-sm text-red-700">No se pudo enviar. Intenta más tarde.</div>';
+          // Error específico del servidor
+          const errorMessage = json.message || 'No se pudo enviar la solicitud';
+          feedback.innerHTML = `
+            <div class="text-sm text-red-700 p-3 bg-red-50 rounded-lg border border-red-200">
+              ❌ <strong>Error:</strong> ${errorMessage}
+            </div>
+          `;
         }
       } catch (err) {
-        console.error(err);
-        feedback.innerHTML = '<div class="text-sm text-red-700">Error de conexión. Intenta nuevamente.</div>';
+        console.error('Error enviando formulario:', err);
+        feedback.innerHTML = `
+          <div class="text-sm text-red-700 p-3 bg-red-50 rounded-lg border border-red-200">
+            ❌ <strong>Error de conexión</strong><br>
+            Verifica tu conexión a internet e inténtalo nuevamente.
+          </div>
+        `;
+      } finally {
+        setFormLoading(false);
       }
     });
   </script>

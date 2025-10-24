@@ -15,3 +15,4 @@ recovery:
 ## Procedimiento
 La corrección de cicatrices abarca tratamientos quirúrgicos y no quirúrgicos (láser, rellenos) para mejorar la apariencia, textura y funcionalidad de una cicatriz. El objetivo es hacerla menos visible o restaurar la movilidad si causa restricciones.
 
+

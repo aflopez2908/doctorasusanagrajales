@@ -9,7 +9,7 @@ recovery:
   time: "2 semanas"
   scars: "Cicatrices escondidas en ropa interior"
   care: "Es normal sentir algunas molestias e inflamación en los primeros días después de la cirugía"
-  details: "Periodo de recuperación de aproximadamente 2 semanas, cicatrices escondidas ropa interior. Las técnicas quirúrgicas varían según las necesidades de la paciente y el grado de caída del seno."
+  details: "Período de recuperación de aproximadamente 2 semanas, cicatrices escondidas ropa interior. Las técnicas quirúrgicas varían según las necesidades de la paciente y el grado de caída del seno."
 results:
   - before: "/images/results/pexia/pexia_antes.png"
     after: "/images/results/pexia/pexia_despues.png"
@@ -19,3 +19,4 @@ results:
 
 ## Procedimiento
 La mastopexia o pexia mamaria es una cirugía estética que tiene como objetivo levantar, reafirmar y remodelar los senos caídos (ptosis mamaria) mediante la eliminación del exceso de piel y la reubicación del tejido mamario y el pezón. Se puede realizar en conjunto con implantes mamarios de silicona si se desea aumentar el tamaño de las mamas.
+
