@@ -5,6 +5,8 @@ short: "Cirugía que reduce o remodela los labios menores de la vulva para mejor
 image: "/images/servicios/ninfoplastia.jpg"
 category: "Contorno Corporal"
 icon: "/images/icons/Ninfoplastia (Labioplastia).png"
+before : "/images/results/ninfoplastia/ninfoplastia_caso1_antes.jpg"
+after : "/images/results/ninfoplastia/ninfoplastia_caso1_despues.jpg"
 recovery: 
   time: "1 a 2 semanas"
   care: "Cuidados especiales en la higiene y reposo relativo"

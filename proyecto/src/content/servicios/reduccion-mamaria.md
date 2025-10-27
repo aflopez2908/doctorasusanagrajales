@@ -5,6 +5,8 @@ short: "Cirugía que disminuye el tamaño y peso de los senos eliminando grasa, 
 image: "/images/servicios/reduccionmamaria.jpg"
 category: "Contorno Corporal"
 icon: "/images/icons/reduccion mamaria.png"
+before : "/images/results/pexia_reduccion/pexia_reduccion_antes.jpg"
+after: "/images/results/pexia_reduccion/pexia_reduccion_despues.jpg"
 recovery: 
   time: "2 semanas"
   scars: "Cicatrices escondidas en ropa interior"

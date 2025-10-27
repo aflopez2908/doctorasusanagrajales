@@ -9,6 +9,8 @@ recovery:
   time: "Variable según el caso"
   care: "Seguimiento médico regular y cuidados específicos según el tipo de tratamiento"
   details: "El tiempo de recuperación varía según el tipo de cicatriz y el tratamiento aplicado."
+before: "/images/results/correccion_cicatriz/correccion_cicatriz_caso1_antes.jpg"
+after : "/images/results/correccion_cicatriz/correccion_cicatriz_caso1_despues.jpg"
 ---
 
 

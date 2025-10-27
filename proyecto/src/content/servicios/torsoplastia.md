@@ -10,6 +10,8 @@ recovery:
   care: "Uso de fajas compresivas, masajes de drenaje, reposo estricto las primeras semanas"
   scars: "Cicatrices extensas alrededor del torso"
   details: "Procedimiento extenso que requiere recuperación prolongada de 3 a 6 semanas para la recuperación inicial."
+before: "/images/results/torsoplastia/torsoplastia_caso1_antes.jpg"
+after: "/images/results/torsoplastia/torsoplastia_caso1_despues.jpg"
 ---
 
 
