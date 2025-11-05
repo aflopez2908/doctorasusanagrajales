@@ -5,6 +5,13 @@ short: "Procedimiento no quirúrgico que mejora la forma de la nariz mediante in
 image: "/images/servicios/rinomodelacion.jpg"
 category: "No Quirúrgicos"
 icon: "/images/icons/Rinomodelación con Ácido Hialurónico.png"
+results:
+  - before: "/images/results/rinomodelacion/rinomodelacion_caso1_antes.jpg"
+    after: "/images/results/rinomodelacion/rinomodelacion_caso1_despues.jpg"
+    label: "Caso 1"
+  - before: "/images/results/rinomodelacion/rinomodelacion_caso2_antes.jpg"
+    after: "/images/results/rinomodelacion/rinomodelacion_caso2_despues.jpg"
+    label: "Caso 2"
 recovery: 
   time: "2 a 5 días"
   results: "Resultados inmediatos"
