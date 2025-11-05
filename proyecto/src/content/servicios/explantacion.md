@@ -1,5 +1,5 @@
 ---
-title: "Explantación y Reconstrucción Mamaria"
+title: "Explantación Mamaria"
 slug: "explantacion"
 short: "Cirugía para retirar implantes mamarios y reconstruir el seno con tejido autólogo del paciente."
 image: "/images/servicios/explantacion.jpg"
