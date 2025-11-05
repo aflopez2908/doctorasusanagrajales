@@ -2,7 +2,7 @@
 title: "Retiro de Biopolímeros"
 slug: "retiro-biopolimeros"
 short: "Procedimiento médico para eliminar biopolímeros inyectados en el cuerpo para fines estéticos y tratar sus complicaciones."
-image: "/images/servicios/retiro de biopolimeros.png"
+image: "/images/servicios/retiro_biopolimeros.jpg"
 category: "Reconstructiva"
 icon: "/images/icons/retiro de biopolimeros.png"
 recovery: 
