@@ -4,7 +4,7 @@ slug: "reseccion-tumores"
 short: "Procedimiento quirúrgico que elimina un tumor o lesión anormal localizada en la piel o tejidos blandos superficiales."
 image: "/images/servicios/reseccion-tumores.png"
 category: "Cirugía Facial"
-icon: "/images/icons/reseccion-tumores.png"
+icon: "/images/icons/reseccion-tumores.jpg"
 recovery: 
   time: "2 semanas"
   scars: "Cicatrices discretas"
