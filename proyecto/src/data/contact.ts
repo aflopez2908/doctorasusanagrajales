@@ -7,7 +7,7 @@ export const centers = [
   {
     city: 'Armenia',
     name: 'Clínica Central del Quindío',
-    address: 'Carrera 12 #1N-35, Consultorio 401, Armenia, Quindío'
+    address: 'Carrera 13 #1N-35, Consultorio 404, Armenia, Quindío'
   }
 ];
 
